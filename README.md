@@ -14,6 +14,14 @@ This repository focuses on building and implementing cryptocurrency features lik
 
 - **Cryptocurrency Price Prediction:** A feature that predicts the prices of the latest cryptocurrencies.
 
+### Contribution guidelines
+- Switch to the gh-pages branch all the changes need to be done in the gh-pages branch
+- Fork the repo of gh-pages branch
+- And then clone the forked repo into ur system using the git clone command
+- And then make the changes and then commit back the changes to your forked repo
+- And then make a pull request addressing the issue
+- We will make the commit based upon our requirments and the quality of your code or changes
+
 
 ## Getting Started
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenTekHub Blockchain Repo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>OpenTekHub Blockchain Repository</h1>
+        <p>Explore the Blockchain implementation and predict the latest cryptocurrency prices.</p>
+    </header>
+
+    <section id="repo-info">
+        <h2>About the Repository</h2>
+        <p>This repository demonstrates blockchain prices using api and javascript.</p>
+        <a href="https://github.com/OpenTekHub/blockchain" target="_blank">Visit the Repo</a>
+    </section>
+
+    <section id="crypto-price-predictor">
+        <h2>Crypto Price Predictor</h2>
+        <div id="crypto-form">
+            <label for="crypto">Enter Cryptocurrency Symbol (e.g., BITCOIN, ETHERUM):</label>
+            <input type="text" id="crypto" name="crypto">
+            <button id="predict-btn">Predict Price</button>
+        </div>
+        <div id="price-result">
+            <h3>Predicted Price:</h3>
+            <p id="price"></p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

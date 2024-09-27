@@ -1,7 +1,3 @@
-Here’s the modified content for the `CODE_OF_CONDUCT.md` for the **OpenTekHub - Blockchain** project based on the details provided:
-
----
-
 # OpenTekHub - Blockchain Project Code of Conduct
 
 ## Welcome
@@ -62,7 +58,3 @@ Community leaders will follow these guidelines to determine the consequences for
 ## Attribution
 
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.0, available [here](https://www.contributor-covenant.org/version/2/0/code_of_conduct.html).
-
----
-
-Feel free to make any final adjustments before adding it to the repository. Let me know if you need help with the next steps!

@@ -24,7 +24,7 @@ jobs:
           script: |
             const issue = context.payload.issue || context.payload.pull_request;
 
-            // Check if issue or pull request exists
+            // Check if the issue or pull request exists
             if (!issue) {
               console.error("No issue or pull request context available.");
               return; // Exit early if there's no issue or PR context
@@ -38,10 +38,15 @@ jobs:
               ? `👋 Hello @${user} ${emoji}!\n\nThank you for opening this issue titled "${title}"! We're excited to see your contribution! 🚀\n\n**Before we proceed, please keep the following rules in mind:**\n1. **Be respectful**: Treat everyone with kindness and respect.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your issue is relevant to the project.\n4. **Ask for help**: If you have any questions, don't hesitate to ask!\n\nIf you have any other suggestions or improvements, feel free to share them with us! 😊\n\nHappy coding! 🎈`
               : `👋 Hello @${user} ${emoji}!\n\nThank you for creating this pull request titled "${title}"! We're excited to see your contribution! 🚀\n\n**Before we proceed, please keep the following rules in mind:**\n1. **Be respectful**: Treat everyone with kindness and respect.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your issue is relevant to the project.\n4. **Ask for help**: If you have any questions, don't hesitate to ask!\n\nIf you have any other suggestions or improvements, feel free to share them with us! 😊\n\nHappy coding! 🎈`;
 
-            await github.issues.createComment({
-              ...context.repo,
-              issue_number: issue.number,
-              body: message
-            });
+            try {
+              await github.issues.createComment({
+                ...context.repo,
+                issue_number: issue.number,
+                body: message
+              });
+            } catch (error) {
+              console.error("Failed to create comment:", error);
+            }
+
 
 

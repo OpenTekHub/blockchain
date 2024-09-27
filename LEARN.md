@@ -9,7 +9,6 @@
 ```bash
 git clone https://github.com/<your-github-username>/OpenTekHub/blockchain.git
 ```
-
 3. **Add a remote upstream:**
    Add a remote upstream to the original repository to sync changes from the original repository. Run the following command in your terminal:
 

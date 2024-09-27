@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
-        uses: actions/checkout@v4.2.0  # Updated to the latest version
+        uses: actions/checkout@v3  # Updated to the latest version
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -23,6 +23,9 @@ jobs:
         with:
           script: |
             const issue = context.payload.issue || context.payload.pull_request;
+
+            // Log the entire context for debugging purposes
+            console.log(context); // Inspect the context object
 
             // Check if the issue or pull request exists
             if (!issue) {
@@ -38,14 +41,18 @@ jobs:
               ? `👋 Hello @${user} ${emoji}!\n\nThank you for opening this issue titled "${title}"! We're excited to see your contribution! 🚀\n\n**Before we proceed, please keep the following rules in mind:**\n1. **Be respectful**: Treat everyone with kindness and respect.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your issue is relevant to the project.\n4. **Ask for help**: If you have any questions, don't hesitate to ask!\n\nIf you have any other suggestions or improvements, feel free to share them with us! 😊\n\nHappy coding! 🎈`
               : `👋 Hello @${user} ${emoji}!\n\nThank you for creating this pull request titled "${title}"! We're excited to see your contribution! 🚀\n\n**Before we proceed, please keep the following rules in mind:**\n1. **Be respectful**: Treat everyone with kindness and respect.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your issue is relevant to the project.\n4. **Ask for help**: If you have any questions, don't hesitate to ask!\n\nIf you have any other suggestions or improvements, feel free to share them with us! 😊\n\nHappy coding! 🎈`;
 
+            console.log("Issue Number:", issue.number); // Log the issue number
+            console.log("Comment Message:", message); // Log the comment message
+
             try {
               await github.issues.createComment({
                 ...context.repo,
-                issue_number: issue.number,
-                body: message
+                issue_number: issue.number, // Ensure issue.number is available
+                body: message // Make sure message is correctly formed
               });
+              console.log("Comment created successfully!"); // Log success
             } catch (error) {
-              console.error("Failed to create comment:", error);
+              console.error("Failed to create comment:", error); // Log error if it fails
             }
 
 

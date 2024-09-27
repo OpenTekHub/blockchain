@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
-        uses: actions/checkout@v3  # Updated version
+        uses: actions/checkout@v4.2.0  # Updated to the latest version
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Specify the version you want to use
+          node-version: '20'  # Use the latest Node.js version
 
       - name: Greet User
         uses: actions/github-script@v6
@@ -43,4 +43,5 @@ jobs:
               issue_number: issue.number,
               body: message
             });
+
 

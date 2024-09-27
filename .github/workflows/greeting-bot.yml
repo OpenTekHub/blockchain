@@ -8,8 +8,16 @@ on:
 
 jobs:
   greet:
-    runs-on: ubuntu-latest  # Change this to windows-latest or macos-latest if needed
+    runs-on: ubuntu-latest
     steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Specify the version you want to use
+
       - name: Greet User
         uses: actions/github-script@v6
         with:
@@ -35,4 +43,5 @@ jobs:
               issue_number: issue.number,
               body: message
             });
+
 

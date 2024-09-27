@@ -1,0 +1,33 @@
+name: Greeting Bot
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet User
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue = context.payload.issue || context.payload.pull_request;
+            const user = issue.user.login;
+            const emoji = '😊';
+            
+            // For when user writes an issues
+            const issueMessage = `👋 Hello @${user}! Thank you for opening this issue titled "**${issue.title}**"! We're excited to see your contribution! 🚀\n\nPlease ensure the following:\n1. Be respectful. 😊\n2. Follow the contribution guidelines.\n\nHappy coding! 🎉`;
+            
+            // For when user makes a  pull requests
+            const pullRequestMessage = `👋 Hello @${user}! Thank you for submitting this pull request titled "**${issue.title}**"! We're looking forward to reviewing your changes! 🚀\n\nPlease make sure:\n1. You adhere to our code of conduct. 😊\n2. Follow the contribution guidelines.\n\nHappy coding! 🎉`;
+
+            const message = context.payload.issue ? issueMessage : pullRequestMessage;
+
+            await github.issues.createComment({
+              ...context.repo,
+              issue_number: issue.number,
+              body: message
+            });

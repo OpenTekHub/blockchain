@@ -4,56 +4,78 @@ on:
   issues:
     types: [opened]
   pull_request:
-    types: [opened]
+    types: [opened, closed]  # To handle merge comments
 
 jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the code
-        uses: actions/checkout@v3  # Updated to the latest version
+      - name: Check out code
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Use the latest Node.js version
+          node-version: '20'
 
-      - name: Greet User
-        uses: actions/github-script@v6
+      - name: Handle Greetings and Comments
+        uses: actions/github-script@v4.2.0
         with:
           script: |
             const issue = context.payload.issue || context.payload.pull_request;
 
-            // Log the entire context for debugging purposes
-            console.log(context); // Inspect the context object
-
-            // Check if the issue or pull request exists
             if (!issue) {
               console.error("No issue or pull request context available.");
-              return; // Exit early if there's no issue or PR context
+              return;
             }
 
             const user = issue.user.login;
-            const emoji = '😊';
-            const title = issue.title || "No Title"; // Handle case where title might be undefined
-            const isIssue = context.payload.issue !== undefined; // Check if it's an issue
-            const message = isIssue
-              ? `👋 Hello @${user} ${emoji}!\n\nThank you for opening this issue titled "${title}"! We're excited to see your contribution! 🚀\n\n**Before we proceed, please keep the following rules in mind:**\n1. **Be respectful**: Treat everyone with kindness and respect.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your issue is relevant to the project.\n4. **Ask for help**: If you have any questions, don't hesitate to ask!\n\nIf you have any other suggestions or improvements, feel free to share them with us! 😊\n\nHappy coding! 🎈`
-              : `👋 Hello @${user} ${emoji}!\n\nThank you for creating this pull request titled "${title}"! We're excited to see your contribution! 🚀\n\n**Before we proceed, please keep the following rules in mind:**\n1. **Be respectful**: Treat everyone with kindness and respect.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your issue is relevant to the project.\n4. **Ask for help**: If you have any questions, don't hesitate to ask!\n\nIf you have any other suggestions or improvements, feel free to share them with us! 😊\n\nHappy coding! 🎈`;
 
-            console.log("Issue Number:", issue.number); // Log the issue number
-            console.log("Comment Message:", message); // Log the comment message
-
-            try {
+            // Handle new issues
+            if (context.eventName === 'issues' && context.payload.action === 'opened') {
+              const message = `🚀 Thanks for opening this issue, @${user}! A maintainer will get back to you shortly! 😊`;
               await github.issues.createComment({
                 ...context.repo,
-                issue_number: issue.number, // Ensure issue.number is available
-                body: message // Make sure message is correctly formed
+                issue_number: issue.number,
+                body: message
               });
-              console.log("Comment created successfully!"); // Log success
-            } catch (error) {
-              console.error("Failed to create comment:", error); // Log error if it fails
+              return;
             }
+
+            // Handle new pull requests
+            if (context.eventName === 'pull_request' && context.payload.action === 'opened') {
+              const message = `🎉 Thanks so much for opening your first PR here, @${user}! Your contribution is appreciated! 🙌`;
+              await github.pulls.createReviewComment({
+                ...context.repo,
+                pull_number: issue.number,
+                body: message
+              });
+              return;
+            }
+
+            // Handle closed pull requests for merging
+            if (context.eventName === 'pull_request' && context.payload.action === 'closed' && context.payload.pull_request.merged) {
+              const message = `🥳 Congrats on merging your first pull request here, @${user}! How awesome! 🎊`;
+              await github.pulls.createReviewComment({
+                ...context.repo,
+                pull_number: issue.number,
+                body: message
+              });
+              return;
+            }
+
+            // Request information for issues needing more details
+            if (context.eventName === 'issues' && context.payload.action === 'opened') {
+              const requestInfoMessage = `🧐 We would appreciate it if you could provide us with more info about this issue, @${user}! 🤔`;
+              await github.issues.createComment({
+                ...context.repo,
+                issue_number: issue.number,
+                body: requestInfoMessage
+              });
+              return;
+            }
+
+
 
 
 

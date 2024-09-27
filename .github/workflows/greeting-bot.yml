@@ -33,7 +33,7 @@ jobs:
 
             // Handle new issues
             if (context.eventName === 'issues' && context.payload.action === 'opened') {
-              const message = `👋 Hello @${user}! Thank you for opening this issue titled "**${issue.title}**"! We're excited to see your contribution and A maintainer will get back to you shortly! 😊! 🚀\n\nPlease ensure the following:\n1. Be respectful. 😊\n2. Follow the contribution guidelines.\n\nHappy coding! 🎉`;
+              const message = `👋 Hello @${user}! Thank you for opening this issue titled "**${issue.title}**"! We're excited to see your contribution and A maintainer will get back to you shortly 😊! \n\nPlease ensure the following:\n1. Be respectful. \n2. Follow the contribution guidelines.\n\nHappy coding! 🚀`;
               await github.issues.createComment({
                 ...context.repo,
                 issue_number: issue.number,

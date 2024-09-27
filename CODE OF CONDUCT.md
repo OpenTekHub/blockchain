@@ -2,7 +2,7 @@
 
 ## Welcome
 
-Welcome to the Blockchain repository by OpenTekHub! This project is part of the **Winter of Blockchain (WoB)** initiative and aims to provide an open-source platform for learning and contributing to blockchain technology. We are committed to maintaining a positive, inclusive, and harassment-free environment for everyone involved.
+Welcome to the Blockchain repository by OpenTekHub! This project aims to provide an open-source platform for learning and contributing to blockchain technology. We are committed to maintaining a positive, inclusive, and harassment-free environment for everyone involved.
 
 ## Our Pledge
 

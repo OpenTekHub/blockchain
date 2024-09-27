@@ -8,26 +8,31 @@ on:
 
 jobs:
   greet:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Change this to windows-latest or macos-latest if needed
     steps:
       - name: Greet User
         uses: actions/github-script@v6
         with:
           script: |
             const issue = context.payload.issue || context.payload.pull_request;
+
+            // Check if issue or pull request exists
+            if (!issue) {
+              console.error("No issue or pull request context available.");
+              return; // Exit early if there's no issue or PR context
+            }
+
             const user = issue.user.login;
             const emoji = '😊';
-            
-            // For when user writes an issues
-            const issueMessage = `👋 Hello @${user}! Thank you for opening this issue titled "**${issue.title}**"! We're excited to see your contribution! 🚀\n\nPlease ensure the following:\n1. Be respectful. 😊\n2. Follow the contribution guidelines.\n\nHappy coding! 🎉`;
-            
-            // For when user makes a  pull requests
-            const pullRequestMessage = `👋 Hello @${user}! Thank you for submitting this pull request titled "**${issue.title}**"! We're looking forward to reviewing your changes! 🚀\n\nPlease make sure:\n1. You adhere to our code of conduct. 😊\n2. Follow the contribution guidelines.\n\nHappy coding! 🎉`;
-
-            const message = context.payload.issue ? issueMessage : pullRequestMessage;
+            const title = issue.title || "No Title"; // Handle case where title might be undefined
+            const isIssue = context.payload.issue !== undefined; // Check if it's an issue
+            const message = isIssue
+              ? `👋 Hello @${user} ${emoji}!\n\nThank you for opening this issue titled "${title}"! We're excited to see your contribution! 🚀\n\n**Before we proceed, please keep the following rules in mind:**\n1. **Be respectful**: Treat everyone with kindness and respect.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your issue is relevant to the project.\n4. **Ask for help**: If you have any questions, don't hesitate to ask!\n\nIf you have any other suggestions or improvements, feel free to share them with us! 😊\n\nHappy coding! 🎈`
+              : `👋 Hello @${user} ${emoji}!\n\nThank you for creating this pull request titled "${title}"! We're excited to see your contribution! 🚀\n\n**Before we proceed, please keep the following rules in mind:**\n1. **Be respectful**: Treat everyone with kindness and respect.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your issue is relevant to the project.\n4. **Ask for help**: If you have any questions, don't hesitate to ask!\n\nIf you have any other suggestions or improvements, feel free to share them with us! 😊\n\nHappy coding! 🎈`;
 
             await github.issues.createComment({
               ...context.repo,
               issue_number: issue.number,
               body: message
             });
+

@@ -44,7 +44,7 @@ jobs:
 
             // Handle new pull requests
             if (context.eventName === 'pull_request' && context.payload.action === 'opened') {
-              const message = `🎉 Thanks so much for opening your first PR here, @${user}! Your contribution is appreciated, and we forward to reviewing your changes! 🙌`;
+              const message = `🎉 Thanks so much for opening your first PR here, @${user}! Your contribution is appreciated, and we look forward to reviewing your changes! 🙌`;
               await github.pulls.createReviewComment({
                 ...context.repo,
                 pull_number: issue.number,
@@ -66,18 +66,14 @@ jobs:
 
             // Request information for issues needing more details
             if (context.eventName === 'issues' && context.payload.action === 'opened') {
-            const issueBody = issue.body || '';
-            if (issueBody.trim().length === 0) {
-              const requestInfoMessage = `🧐 We would appreciate it if you could provide us with more info about this issue, @${user}! 🤔`;
-              await github.issues.createComment({
-                ...context.repo,
-                issue_number: issue.number,
-                body: requestInfoMessage
-              });
-              return;
+              const issueBody = issue.body || '';
+              if (issueBody.trim().length === 0) {
+                const requestInfoMessage = `🧐 We would appreciate it if you could provide us with more info about this issue, @${user}! 🤔`;
+                await github.issues.createComment({
+                  ...context.repo,
+                  issue_number: issue.number,
+                  body: requestInfoMessage
+                });
+                return;
+              }
             }
-
-
-
-
-

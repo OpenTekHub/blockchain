@@ -2,78 +2,50 @@ name: Greeting Bot
 
 on:
   issues:
-    types: [opened]
+    types: [opened, closed]  # Trigger on both opened and closed events
   pull_request:
-    types: [opened, closed]  # To handle merge comments
+    types: [opened]
 
 jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
-      - name: Handle Greetings and Comments
-        uses: actions/github-script@v4.2.0
+      - name: Greet User
+        uses: actions/github-script@v6
         with:
           script: |
             const issue = context.payload.issue || context.payload.pull_request;
-
-            if (!issue) {
-              console.error("No issue or pull request context available.");
-              return;
-            }
-
             const user = issue.user.login;
+            const emoji = '😊';
+            
+            // For when user writes an issue
+            const issueMessage = `👋 Hello @${user}! Thank you for opening this issue titled "**${issue.title}**"! We're excited to see your contribution! 🚀\n\nPlease ensure the following:\n1. Be respectful. 😊\n2. Follow the contribution guidelines.\n\nHappy coding! 🎉`;
+            
+            // For when user makes a pull request
+            const pullRequestMessage = `👋 Hello @${user}! Thank you for submitting this pull request titled "**${issue.title}**"! We're looking forward to reviewing your changes! 🚀\n\nPlease make sure:\n1. You adhere to our code of conduct. 😊\n2. Follow the contribution guidelines.\n\nHappy coding! 🎉`;
 
-            // Handle new issues
-            if (context.eventName === 'issues' && context.payload.action === 'opened') {
-              const message = `👋 Hello @${user}! Thank you for opening this issue titled "**${issue.title}**"! We're excited to see your contribution! 🚀\n\nPlease ensure the following:\n1. Be respectful. 😊\n2. Follow the contribution guidelines.\n\nHappy coding! 🎉`;
-              await github.issues.createComment({
-                ...context.repo,
-                issue_number: issue.number,
-                body: message
-              });
-              return;
-            }
+            const message = context.payload.issue ? issueMessage : pullRequestMessage;
 
-            // Handle new pull requests
-            if (context.eventName === 'pull_request' && context.payload.action === 'opened') {
-              const message = `🎉 Thanks so much for opening your first PR here, @${user}! Your contribution is appreciated, and we look forward to reviewing your changes! 🙌`;
-              await github.pulls.createReviewComment({
-                ...context.repo,
-                pull_number: issue.number,
-                body: message
-              });
-              return;
-            }
+            await github.issues.createComment({
+              ...context.repo,
+              issue_number: issue.number,
+              body: message
+            });
 
-            // Handle closed pull requests for merging
-            if (context.eventName === 'pull_request' && context.payload.action === 'closed' && context.payload.pull_request.merged) {
-              const message = `👋 Hello @${user}! Thank you and Congrats on merging your first pull request here 🚀! How awesome! 🎊`;
-              await github.pulls.createReviewComment({
-                ...context.repo,
-                pull_number: issue.number,
-                body: message
-              });
-              return;
-            }
+  congratulate:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'closed'  # Only run if the issue is closed
+    steps:
+      - name: Congratulate Contributor
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const user = issue.user.login;
+            const congratulatoryMessage = `🎉 Congratulations @${user}! Your issue titled "**${issue.title}**" has been closed! Thank you for your contribution! We appreciate your efforts and look forward to your future contributions! 🚀`;
 
-            // Request information for issues needing more details
-            if (context.eventName === 'issues' && context.payload.action === 'opened') {
-              const issueBody = issue.body || '';
-              if (issueBody.trim().length === 0) {
-                const requestInfoMessage = `🧐 We would appreciate it if you could provide us with more info about this issue, @${user}! 🤔`;
-                await github.issues.createComment({
-                  ...context.repo,
-                  issue_number: issue.number,
-                  body: requestInfoMessage
-                });
-                return;
-              }
-            }
+            await github.issues.createComment({
+              ...context.repo,
+              issue_number: issue.number,
+              body: congratulatoryMessage
+            });

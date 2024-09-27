@@ -33,7 +33,7 @@ jobs:
 
             // Handle new issues
             if (context.eventName === 'issues' && context.payload.action === 'opened') {
-              const message = `🚀 Thanks for opening this issue, @${user}! A maintainer will get back to you shortly! 😊`;
+              const message = `👋 Hello @${user}! Thank you for opening this issue titled "**${issue.title}**"! We're excited to see your contribution! 🚀\n\nPlease ensure the following:\n1. Be respectful. 😊\n2. Follow the contribution guidelines.\n\nHappy coding! 🎉`;
               await github.issues.createComment({
                 ...context.repo,
                 issue_number: issue.number,
@@ -44,7 +44,7 @@ jobs:
 
             // Handle new pull requests
             if (context.eventName === 'pull_request' && context.payload.action === 'opened') {
-              const message = `🎉 Thanks so much for opening your first PR here, @${user}! Your contribution is appreciated! 🙌`;
+              const message = `🎉 Thanks so much for opening your first PR here, @${user}! Your contribution is appreciated, and we forward to reviewing your changes! 🙌`;
               await github.pulls.createReviewComment({
                 ...context.repo,
                 pull_number: issue.number,
@@ -55,7 +55,7 @@ jobs:
 
             // Handle closed pull requests for merging
             if (context.eventName === 'pull_request' && context.payload.action === 'closed' && context.payload.pull_request.merged) {
-              const message = `🥳 Congrats on merging your first pull request here, @${user}! How awesome! 🎊`;
+              const message = `👋 Hello @${user}! Thank you and Congrats on merging your first pull request here 🚀! How awesome! 🎊`;
               await github.pulls.createReviewComment({
                 ...context.repo,
                 pull_number: issue.number,
@@ -66,6 +66,8 @@ jobs:
 
             // Request information for issues needing more details
             if (context.eventName === 'issues' && context.payload.action === 'opened') {
+            const issueBody = issue.body || '';
+            if (issueBody.trim().length === 0) {
               const requestInfoMessage = `🧐 We would appreciate it if you could provide us with more info about this issue, @${user}! 🤔`;
               await github.issues.createComment({
                 ...context.repo,

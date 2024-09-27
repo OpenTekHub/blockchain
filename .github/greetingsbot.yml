@@ -1,0 +1,34 @@
+name: Greeting Bot 🤖✨
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet User
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue = context.payload.issue || context.payload.pull_request;
+            const user = issue.user.login;
+            const emoji = '🎉';  // Celebration emoji
+            
+          // Greeting message for when user acceses issues
+            const issueMessage = `Hello @${user} ${emoji}!\n\nThank you for opening this issue titled "${issue.title}"! We're excited to see your contribution! 🚀\n\n**Before we proceed, please keep the following rules in mind:**\n1. **Be respectful**: Treat everyone with kindness and respect.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your issue is relevant to the project.\n4. **Ask for help**: If you have any questions, don't hesitate to ask!\n\nPlease adhere to our [Code of Conduct](link-to-code-of-conduct) to maintain a positive environment for everyone! 😊\n\nHappy coding! 🎈`;
+
+          // Greeting message for when user makes a pull requests
+            const pullRequestMessage = `Hello @${user} ${emoji}!\n\nThank you for opening this pull request titled "${issue.title}"! We're thrilled to review your contribution! 🚀\n\n**Before we proceed, please remember to:**\n1. **Adhere to our Code of Conduct**: It's important to maintain a respectful and welcoming atmosphere.\n2. **Follow the contribution guidelines**: Ensure your code adheres to our [contribution guidelines](link-to-guidelines).\n3. **Open relevant issues**: Make sure your pull request addresses a relevant issue or feature.\n4. **Ask for help**: If you have any questions or need clarification, feel free to ask!\n\nWe're looking forward to your contributions and hope you enjoy collaborating with us! 😊\n\nHappy coding! 🎈`;
+
+            // Determine which message to send
+            const message = context.payload.issue ? issueMessage : pullRequestMessage;
+            
+            await github.issues.createComment({
+              ...context.repo,
+              issue_number: issue.number,
+              body: message
+            });

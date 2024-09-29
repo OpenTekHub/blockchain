@@ -51,3 +51,20 @@ button:hover {
     font-size: 24px;
     color: #007BFF;
 }
+
+
+#telegram-bot {
+    /* margin-top: 20px; */
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.bot-link{
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.bot-text{
+    font-size: 16px;
+}

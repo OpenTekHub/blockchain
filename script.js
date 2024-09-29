@@ -82,13 +82,25 @@ document.getElementById("predict-btn").addEventListener("click", function() {
         'CRO': 'crypto-com-chain',
         'MIOTA': 'iota',
         'ETC': 'ethereum-classic',
+        'WAVES': 'waves',
     
         // Meme coins
         'BABYDOGE': 'baby-doge-coin',
         'SAFEMOON': 'safemoon',
         'ELON': 'dogelon-mars',
+        'FLOKI': 'floki-inu',
+        'PEPE': 'memetic',
         
         // Add more symbols and tokens as needed
+        'COMP': 'compound',
+        'MKR': 'maker',
+        'BAL': 'balancer',
+        'WLD': 'worldcoin',
+        'OM': 'mantra-dao',
+        'PHB': 'phoenix',
+        'NOT': 'Notcoin',
+        'LISTA': 'lista',
+
     };
     
 

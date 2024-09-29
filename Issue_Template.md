@@ -3,29 +3,24 @@ blockchain[OpenTekHub]
 
 ## Problem Description:
 
-Currently in OpenTekHub, the only search option is to search the full name of the cryptocurrency, like BITCOIN and ETHEREUM only.
-I have edited the script.js file to allow Searches with the symbols too like:
+### Issue faced [Documentation Enhancement/Feature Request/Bug Report]
+Ex: Adding accessibility for ... 
 
-BTC --> BITCOIN
-
-ETH --> ETHEREUM
-
-SOL --> SOLANA
 
 ## Need for this fix
 
-Since in the vast pool of cryptocurrencies, a frequent trader would prefer if they could check the prices with only the unique symbols instead of the complete name which coulg get repetitive and time consuming.
+Mention how would the fix create a change
 
 ## Reproducing the Issue
+Write the Steps to reproduce the error on your machine with relevant screenshots wherever applicable.
 
+Ex: 
 - Visit the deployed website [here](https://opentekhub.github.io/blockchain/)
 - Try Searching for the preferred Crypto using their Symbol (like BTC for BITCOIN)
 - Error : "Cryptocurrency not found!"
 
-## Error Screenshot
+## Error Screenshot(Preferred)
+Screenshot of the Issue being faced on your system to help the maintainers better understand it.
 
-![Screenshot 2024-09-28 235715](https://github.com/user-attachments/assets/543b3fa4-7521-4e2c-a872-ac347a036883)
-
-## Error Fix
-
-![image](https://github.com/user-attachments/assets/acfc2c60-aec4-4312-a15b-96881a397d61)
+## Error Fix(Optional)
+Mention the steps you would take to fix the issue or add a screenshot showing the expected working when fixed

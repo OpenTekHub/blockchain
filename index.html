@@ -5,32 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenTekHub Blockchain Repo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Gowun+Batang:wght@400;700&family=Mate+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <h1>OpenTekHub Blockchain Repository</h1>
-        <p>Explore the Blockchain implementation and predict the latest cryptocurrency prices.</p>
     </header>
+
+    <div class="central">
+        <p class="tagline">Explore the Blockchain implementation and predict the latest cryptocurrency prices.</p>
+
+        <section id="crypto-price-predictor">
+            <h2>Crypto Price Predictor</h2>
+            <div id="crypto-form">
+                <label for="crypto">Enter Cryptocurrency Symbol (e.g., BITCOIN(BTC), ETHERUM(ETH)):</label>
+                <input type="text" id="crypto" name="crypto">
+                <button id="predict-btn">Predict Price</button>
+            </div>
+            <div id="price-result">
+                <h3>Predicted Price:</h3>
+                <p id="price"></p>
+            </div>
+        </section>
+    </div>
 
     <section id="repo-info">
         <h2>About the Repository</h2>
         <p>This repository demonstrates blockchain prices using api and javascript.</p>
         <a href="https://github.com/OpenTekHub/blockchain" target="_blank">Visit the Repo</a>
-    </section>
-
-    <section id="crypto-price-predictor">
-        <h2>Crypto Price Predictor</h2>
-        <div id="crypto-form">
-            <label for="crypto">Enter Cryptocurrency Symbol (e.g., BITCOIN(BTC), ETHERUM(ETH)):</label>
-            <input type="text" id="crypto" name="crypto">
-            <button id="predict-btn">Predict Price</button>
-        </div>
-        <div id="price-result">
-            <h3>Predicted Price:</h3>
-            <p id="price"></p>
-        </div>
     </section>
 
     <script src="script.js"></script>

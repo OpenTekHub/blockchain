@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -50,4 +50,109 @@ button:hover {
 #price {
     font-size: 24px;
     color: #007BFF;
+} */
+
+body{
+    margin: 0;
+    padding: 0;
+    /* background-color: blueviolet; */
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    height: 100vh;
+
+    font-family: "Gowun Batang", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1, h2, h3{
+    padding: 0;
+    margin: 0;
+}
+
+.header{
+    text-align: center;
+    background-color: #2E073F;
+    color: #EBD3F8;   
+    padding: 1.4rem;        
+    box-shadow: 0 1px 10px 2px rgb(160, 159, 159);
+    font-family: "Mate SC", serif;
+}
+
+.tagline{
+    text-align: center;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+    width: 80%;
+    color: #FFEB55;
+}
+
+.central{
+    display: flex;
+    margin: 2rem 1rem;
+    gap: 2rem;
+}
+
+#crypto-price-predictor{
+    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.281);
+    border-radius: 30px;
+    padding: 1rem 1.5rem;
+    font-size: 20px;
+    text-align: center;
+}
+
+#crypto-price-predictor h2{
+    text-align: center;
+    margin-bottom: 10px;    
+}
+#crypto{
+    display: block;
+    width: 80%;
+    font-size: 1.5rem;    
+    margin: 1rem auto;
+}
+#predict-btn{
+    -webkit-border-radius: 19;
+    -moz-border-radius: 19;
+    font-family: "Fredoka", sans-serif;
+    border-radius: 19px;    
+    color: #000000;
+    font-size: 20px;
+    background: #FFEB55;
+    padding: 10px 30px;
+    margin: 10px auto;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+#predict-btn:hover {
+    background: #FBD786;
+    text-decoration: none;
+}
+
+#price{
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #ffee00;
+    font-weight: 700;
+}
+
+
+#repo-info{
+    background-color: #fffefe10;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;   
+    text-align: center; 
+}
+#repo-info p{
+    margin: 0;
+}
+#repo-info a{
+    color:#ffee00;
 }

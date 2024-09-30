@@ -156,3 +156,31 @@ h1, h2, h3{
 #repo-info a{
     color:#ffee00;
 }
+
+#crypto-suggestions {
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 384px;
+    z-index: 1000;
+    color: #000000;
+    left: 3rem;
+    top: 7rem;
+}
+
+#crypto-suggestions div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#crypto-suggestions div:hover {
+    background-color: #f0f0f0;
+}
+
+#crypto-form {
+    position: relative;
+}

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #240b36, #c31432); /* Modern gradient background */
+    background: linear-gradient(135deg, #240b36, #c31432);
     color: white;
     height: 100vh;
     font-family: "Gowun Batang", serif;
@@ -20,9 +20,9 @@ h1, h2, h3 {
     text-align: center;
     background-color: #2E073F;
     color: #EBD3F8;
-    padding: 1.5rem;
+    padding: 1.2rem;
     font-family: "Mate SC", serif;
-    font-size: 2rem; /* Reduced size for mobile */
+    font-size: 1.8rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -30,9 +30,9 @@ h1, h2, h3 {
     text-align: center;
     font-family: "Fredoka", sans-serif;
     font-weight: 500;
-    font-size: 1.8rem; /* Smaller for mobile */
+    font-size: 1.6rem;
     color: #FFEB55;
-    margin: 1.2rem auto;
+    margin: 1rem auto;
     max-width: 85%;
 }
 
@@ -40,47 +40,50 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1.5rem 1rem;
-    gap: 1.5rem;
+    margin: 1.2rem 1rem;
+    gap: 1rem;
 }
 
 #crypto-price-predictor {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    padding: 1.5rem;
-    font-size: 1rem; /* Smaller for mobile */
+    padding: 1.2rem;
+    font-size: 0.9rem;
     text-align: center;
-    width: 90%;
+    width: 95%;
     max-width: 400px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 #crypto-price-predictor h2 {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     color: #FFEB55;
     font-family: "Fredoka", sans-serif;
+    font-size: 1.3rem;
 }
 
 #crypto {
     display: block;
     width: 100%;
-    font-size: 1.2rem;
-    padding: 0.8rem;
+    max-width: 100%; /* Ensures it stays within the container */
+    font-size: 1.1rem;
+    padding: 0.7rem;
     border-radius: 10px;
     border: none;
-    margin: 1rem 0;
+    margin: 0.8rem 0;
     background-color: #f0f0f0;
     color: #000;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Ensures padding does not cause overflow */
 }
 
 #predict-btn {
     font-family: "Fredoka", sans-serif;
     border-radius: 19px;
     color: #000;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     background: #FFEB55;
-    padding: 0.75rem 2rem;
+    padding: 0.6rem 1.8rem;
     border: none;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -91,7 +94,7 @@ h1, h2, h3 {
 }
 
 #price-result {
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
 }
 
 #price {
@@ -133,9 +136,9 @@ h1, h2, h3 {
     background-color: #fff;
     max-height: 150px;
     overflow-y: auto;
-    width: 90%; /* Adjusted for mobile */
+    width: 90%;
     z-index: 1000;
-    left: 5%; /* Centered for mobile */
+    left: 5%;
     color: #000;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
@@ -165,7 +168,29 @@ h1, h2, h3 {
         max-width: 70%;
     }
 
-    #header h1 {
+    .header h1 {
         font-size: 3rem;
+    }
+}
+
+/* Additional mobile styling improvements */
+@media (max-width: 767px) {
+    #crypto-price-predictor {
+        width: 100%; /* Full width for small screens */
+        padding: 1.5rem; /* Better spacing */
+    }
+
+    #crypto {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+
+    #predict-btn {
+        font-size: 1rem; /* Adjust button font size */
+        padding: 0.5rem 1.2rem;
+    }
+
+    .tagline {
+        font-size: 1.4rem; /* Smaller tagline for mobile */
+        max-width: 90%;
     }
 }

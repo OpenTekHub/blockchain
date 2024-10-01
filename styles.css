@@ -74,7 +74,7 @@ h1, h2, h3 {
     background-color: #f0f0f0;
     color: #000;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box; /* Ensures padding does not cause overflow */
+    box-sizing: border-box; 
 }
 
 #predict-btn {
@@ -173,24 +173,49 @@ h1, h2, h3 {
     }
 }
 
-/* Additional mobile styling improvements */
 @media (max-width: 767px) {
     #crypto-price-predictor {
-        width: 100%; /* Full width for small screens */
-        padding: 1.5rem; /* Better spacing */
+        width: 100%; 
+        padding: 1.2rem;
     }
 
     #crypto {
-        font-size: 1rem; /* Adjust font size for smaller screens */
+        font-size: 1rem; 
     }
 
     #predict-btn {
-        font-size: 1rem; /* Adjust button font size */
+        font-size: 1rem;
         padding: 0.5rem 1.2rem;
     }
 
     .tagline {
-        font-size: 1.4rem; /* Smaller tagline for mobile */
+        font-size: 1rem;
         max-width: 90%;
+        text-align: center;
+        margin: 0.8rem auto;
+    }
+
+    .header h1 {
+        font-size: 1.4rem;
+    }
+
+    #repo-info {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    #repo-info h2{
+        font-size: 1rem;
+    }
+
+    #repo-info p {
+        font-size: 0.9rem;
+        margin: 0.5rem auto;
+        max-width: 90%;
+    }
+
+    #repo-info a {
+        font-size: 1rem;
+        word-wrap: break-word;
     }
 }

@@ -15,6 +15,7 @@ This repository focuses on building and implementing cryptocurrency features lik
 - **Cryptocurrency Price Prediction:** A feature that predicts the prices of the latest cryptocurrencies.
 
 ### Contribution guidelines
+
 1. **Switch to the gh-pages branch**: Click on the current branch name at the top of the window to open the Branch dropdown menu. Locate and click on the gh-pages branch to switch to it.
 
 2. **Fork the Repository**:
@@ -52,9 +53,8 @@ Go to the original repository (OpenTekHub/blockchain) on GitHub and you’ll see
 8. **Address Feedback:**
 Be prepared to address any feedback from the maintainers regarding your pull request. We value quality contributions and may ask for revisions.
 
-
-
-
+9. **Star the Repository and Follow the Organization:**
+Don’t forget to star ⭐ the repository and follow the [OpenTekHub](https://github.com/OpenTekHub) organization to stay updated with our projects and contributions!
 
 
 ## Getting Started

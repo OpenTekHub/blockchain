@@ -1,160 +1,128 @@
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+body {
     margin: 0;
     padding: 0;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-section {
-    padding: 20px;
-    margin: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#crypto-form {
-    margin-top: 20px;
-}
-
-input {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-button {
-    padding: 10px 15px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-#price-result {
-    margin-top: 20px;
-}
-
-#price {
-    font-size: 24px;
-    color: #007BFF;
-} */
-
-body{
-    margin: 0;
-    padding: 0;
-    /* background-color: blueviolet; */
-    background: #c31432;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(135deg, #240b36, #c31432);
     color: white;
     height: 100vh;
-
     font-family: "Gowun Batang", serif;
     font-weight: 400;
     font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-h1, h2, h3{
-    padding: 0;
+h1, h2, h3 {
     margin: 0;
 }
 
-.header{
+.header {
     text-align: center;
     background-color: #2E073F;
-    color: #EBD3F8;   
-    padding: 1.4rem;        
-    box-shadow: 0 1px 10px 2px rgb(160, 159, 159);
+    color: #EBD3F8;
+    padding: 1.8rem;
     font-family: "Mate SC", serif;
+    font-size: 2.5rem; /* Increased font size for emphasis */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.tagline{
+.tagline {
     text-align: center;
     font-family: "Fredoka", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3rem;
-    width: 80%;
+    font-weight: 500;
+    font-size: 2rem;
     color: #FFEB55;
+    margin: 1.5rem auto;
+    max-width: 70%;
 }
 
-.central{
+.central {
     display: flex;
+    justify-content: center;
     margin: 2rem 1rem;
     gap: 2rem;
+    flex-direction: column;
+    align-items: center;
 }
 
-#crypto-price-predictor{
-    background-color: #fff;
-    background-color: rgba(0, 0, 0, 0.281);
-    border-radius: 30px;
-    padding: 1rem 1.5rem;
-    font-size: 20px;
+#crypto-price-predictor {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    font-size: 1.1rem;
     text-align: center;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-#crypto-price-predictor h2{
-    text-align: center;
-    margin-bottom: 10px;    
-}
-#crypto{
-    display: block;
-    width: 80%;
-    font-size: 1.5rem;    
-    margin: 1rem auto;
-}
-#predict-btn{
-    -webkit-border-radius: 19;
-    -moz-border-radius: 19;
+#crypto-price-predictor h2 {
+    margin-bottom: 1rem;
+    color: #FFEB55;
     font-family: "Fredoka", sans-serif;
-    border-radius: 19px;    
-    color: #000000;
-    font-size: 20px;
+}
+
+#crypto {
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: none;
+    margin: 1rem 0;
+    background-color: #f0f0f0;
+    color: #000;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+#predict-btn {
+    font-family: "Fredoka", sans-serif;
+    border-radius: 19px;
+    color: #000;
+    font-size: 1.2rem;
     background: #FFEB55;
-    padding: 10px 30px;
-    margin: 10px auto;
-    text-decoration: none;
+    padding: 0.75rem 2.5rem;
     border: none;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
+
 #predict-btn:hover {
-    background: #FBD786;
-    text-decoration: none;
+    background: #fbd786;
 }
 
-#price{
+#price-result {
+    margin-top: 1.5rem;
+}
+
+#price {
     margin-top: 0;
-    font-size: 1.5rem;
-    color: #ffee00;
-    font-weight: 700;
+    font-size: 1.8rem;
+    color: #FFEB55;
+    font-weight: bold;
 }
 
-
-#repo-info{
+#repo-info {
     background-color: #fffefe10;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;   
-    text-align: center; 
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.2);
 }
-#repo-info p{
-    margin: 0;
+
+#repo-info p {
+    margin: 0.5rem 0;
+    color: #FFF;
 }
-#repo-info a{
-    color:#ffee00;
+
+#repo-info a {
+    color: #FFEB55;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#repo-info a:hover {
+    color: #fbd786;
 }
 
 #crypto-suggestions {
@@ -162,14 +130,14 @@ h1, h2, h3{
     position: absolute;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: white;
+    background-color: #fff;
     max-height: 150px;
     overflow-y: auto;
-    width: 384px;
+    width: 80%;
     z-index: 1000;
-    color: #000000;
-    left: 3rem;
-    top: 7rem;
+    left: 10%;
+    color: #000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 #crypto-suggestions div {
@@ -181,6 +149,17 @@ h1, h2, h3{
     background-color: #f0f0f0;
 }
 
-#crypto-form {
-    position: relative;
+@media (min-width: 768px) {
+    .central {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    #crypto-price-predictor {
+        width: 45%;
+    }
+
+    .tagline {
+        font-size: 2.5rem;
+    }
 }

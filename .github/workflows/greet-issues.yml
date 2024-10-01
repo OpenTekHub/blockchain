@@ -1,0 +1,47 @@
+name: Greet Issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3  # This should automatically be on Node 20
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3  # This should also be compatible with Node 20
+        with:
+          node-version: '20'
+
+      - name: Handle Issue Greetings
+        uses: actions/github-script@v6  # Update to a compatible version
+        with:
+          script: |
+            const issue = context.payload.issue;
+            if (!issue) {
+              console.error("No issue context available.");
+              return;
+            }
+
+            const user = issue.user.login;
+            const message = `👋 Hello @${user}! Thank you for opening this issue titled "**${issue.title}**"! We're excited to see your contribution and a maintainer will get back to you shortly 😊! \n\nPlease ensure the following:\n1. Be respectful. \n2. Follow the contribution guidelines.\n\nHappy coding! 🚀`;
+
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: issue.number,
+              body: message
+            });
+
+            // Request more information if the issue body is empty
+            const issueBody = issue.body || '';
+            if (issueBody.trim().length === 0) {
+              const requestInfoMessage = `🧐 We would appreciate it if you could provide us with more info about this issue, @${user}! 🤔`;
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: issue.number,
+                body: requestInfoMessage
+              });
+            }

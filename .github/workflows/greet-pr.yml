@@ -1,0 +1,19 @@
+name: Greetings Workflow
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Welcome Message
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+         
+          pr-message: |
+            🎉 Thank you for your contribution! Your pull request has been submitted successfully.
+            A maintainer will review it as soon as possible. We appreciate your support in improving this project!
+

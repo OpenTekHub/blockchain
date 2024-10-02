@@ -26,6 +26,11 @@ const cryptoMap = {
     'FIL': 'filecoin',
     'NEAR': 'near',
     'HBAR': 'hedera-hashgraph',
+    'TON': 'toncoin',
+    'SUI':'sui',
+    'OP': 'optimism',
+    'INJ': 'injective',
+    'ARB': 'arbitrum',
 
     // Stablecoins
     'DAI': 'dai',
@@ -84,8 +89,20 @@ const cryptoMap = {
     'BABYDOGE': 'baby-doge-coin',
     'SAFEMOON': 'safemoon',
     'ELON': 'dogelon-mars',
+    'PEPE': 'memetic',
+    'WIF': 'dogwithat',
+    'BONK': 'bonk',
+    'FLOKI': 'floki',
     
     // Add more symbols and tokens as needed
+    'WETH': 'wrapped-ethereum',
+    'MKR': 'maker',
+    'BAL': 'balancer',
+    'WLD': 'worldcoin',
+    'OM': 'mantra-dao',
+    'PHB': 'phoenix',
+    'LISTA': 'lista',
+    'RENDER': 'render',
 };
 
 const cryptoInput = document.getElementById('crypto');

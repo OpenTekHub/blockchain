@@ -104,38 +104,6 @@ const cryptoMap = {
     'LISTA': 'lista',
     'RENDER': 'render',
 };
-const airdrops = [
-    {
-        name: 'MoonToken Airdrop',
-        symbol: 'MOON',
-        date: 'October 10, 2024',
-        reward: '100 MOON tokens'
-    },
-    {
-        name: 'SolarCoin Airdrop',
-        symbol: 'SOLAR',
-        date: 'October 15, 2024',
-        reward: '50 SOLAR tokens'
-    },
-    {
-        name: 'Stellar Drop',
-        symbol: 'STELLAR',
-        date: 'October 20, 2024',
-        reward: '75 STELLAR tokens'
-    },
-    {
-        name: 'MarsCoin Airdrop',
-        symbol: 'MARS',
-        date: 'October 25, 2024',
-        reward: '200 MARS tokens'
-    },
-    {
-        name: 'Venus Airdrop',
-        symbol: 'VENUS',
-        date: 'October 30, 2024',
-        reward: '150 VENUS tokens'
-    }
-];
 
 const cryptoInput = document.getElementById('crypto');
 const suggestionsBox = document.getElementById('crypto-suggestions');
@@ -189,39 +157,4 @@ document.getElementById('predict-btn').addEventListener('click', function() {
     } else {
         document.getElementById("price").innerText = "Please enter a valid cryptocurrency symbol.";
     }
-});
-const text="Explore the Blockchain implementation and predict the latest cryptocurrency prices."
-const container=document.getElementsByClassName("tagline");
-function animatetext(){
-    [...text].forEach((letter,index)=>{
-        const span=document.createElement('span');
-        span.textContent=letter;
-        span.id=index;
-        container.appendChild(span);
-        setTimeout(()=>{
-            span.style.opacity = 1; 
-        }, index * 100);
-        })
-
-}
-function displayAirdrops() {
-    const airdropList = document.getElementById('airdrop-list');
-    airdropList.innerHTML = ''; 
-
-    airdrops.forEach(airdrop => {
-        const airdropItem = document.createElement('div');
-        airdropItem.className = 'airdrop-item';
-
-        airdropItem.innerHTML = `
-            <h4 style="color:#FFEB55;letter-spacing:2px">${airdrop.name} (${airdrop.symbol})</h4>
-            <p><strong>Date:</strong> ${airdrop.date}</p>
-            <p><strong>Reward:</strong> ${airdrop.reward}</p>
-        `;
-
-        airdropList.appendChild(airdropItem);
-    });
-}
-
-window.addEventListener('DOMContentLoaded', function() {
-    displayAirdrops();
 });

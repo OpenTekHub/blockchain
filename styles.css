@@ -1,81 +1,15 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(90deg, rgba(167, 71, 175, 1) 3%, rgba(82, 33, 105, 1) 98%);
+    background: linear-gradient(135deg, #240b36, #c31432);
     color: white;
-    height: 100vw;
-    font-family: "Bebas Neue", sans-serif;
+    height: 100vh;
+    font-family: "Gowun Batang", serif;
+    font-weight: 400;
+    font-style: normal;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-x: hidden;
-}
-
-#home {
-    position: relative;
-}
-
-#main {
-    font-size: 6vw;  
-    position: relative;
-    top: 10vh;     
-    left: 15vw;      
-    letter-spacing: 2px;
-    z-index: 2;
-    margin-bottom: 10vh; 
-}
-
-#icon1, #icon2 {
-    width: 20vw;     
-    position: absolute;
-    filter: drop-shadow(10px 50px 5px rgba(14, 14, 14, 0.5));
-    z-index: 1;
-}
-
-#space {
-    margin-left: 100px;
-    color: #ffffff;
-    font-size: 6vw;  
-}
-
-#icon1 {
-    top: 55vh;       
-    left: 6vw;       
-}
-
-#icon2 {
-    width: 22vw;
-    top: 18vh;
-    right:-1vw;
-}
-
-#icon3 {
-    width: 10vw;
-    margin-bottom: -10%;
-}
-
-span {
-    font-size: 7.6rem;
-    color: #FFEB55;
-    filter: drop-shadow(10px 10px 5px rgba(14, 14, 14, 0.5));
-}
-
-.contract {
-    position: absolute; 
-    top: 6%;         
-    right: 2%;      
-    width: 10vw;     
-    height: 7vh;    
-    border: 2px solid rgb(253, 255, 163);
-    background-color: blueviolet;
-    border-radius: 12px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.contract:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-    box-shadow: 10px 10px 5px rgba(3, 3, 3, 0.534);
 }
 
 h1, h2, h3 {
@@ -84,52 +18,39 @@ h1, h2, h3 {
 
 .header {
     text-align: center;
+    background-color: #2E073F;
     color: #EBD3F8;
     padding: 1.2rem;
-    letter-spacing: 5px;
+    font-family: "Mate SC", serif;
     font-size: 1.8rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    font-family: "Bebas Neue", sans-serif;
 }
 
 .tagline {
     text-align: center;
-    font-family: "Handjet", sans-serif;
+    font-family: "Fredoka", sans-serif;
     font-weight: 500;
-    font-size: 0.5rem;
+    font-size: 1.6rem;
+    color: #FFEB55;
     margin: 1rem auto;
     max-width: 85%;
-    margin-top: 5%;
-}
-
-
-
-.tagline span {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    font-size: 1.5rem;
 }
 
 .central {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1.5rem 1.5rem;
+    margin: 1.2rem 1rem;
     gap: 1rem;
-    font-size: 1.9rem;
-    position: relative;
-    left: -30vw;
-   
 }
 
 #crypto-price-predictor {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 1.2rem;
-    padding-right: 45px;
-    font-size: 1.4rem;
+    font-size: 0.9rem;
     text-align: center;
-    width: 96%;
+    width: 95%;
     max-width: 400px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
@@ -138,29 +59,13 @@ h1, h2, h3 {
     margin-bottom: 0.6rem;
     color: #FFEB55;
     font-family: "Fredoka", sans-serif;
-    font-size: 1.7rem;
-}
-
-#crypto-suggestions {
-    background-color: #ffffff;
-    color: black;
- 
-    border-radius: 15px;
-    position: absolute;
-    max-width: 96%;
-    min-width: 30%;
-    margin-top: 0%;
-}
-
-#crypto-suggestions div {
-    border-bottom: 1px solid black;
-    min-height: 10%;
+    font-size: 1.3rem;
 }
 
 #crypto {
     display: block;
     width: 100%;
-    max-width: 100%;
+    max-width: 100%; /* Ensures it stays within the container */
     font-size: 1.1rem;
     padding: 0.7rem;
     border-radius: 10px;
@@ -169,6 +74,7 @@ h1, h2, h3 {
     background-color: #f0f0f0;
     color: #000;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; 
 }
 
 #predict-btn {
@@ -193,216 +99,142 @@ h1, h2, h3 {
 
 #price {
     margin-top: 0;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: #FFEB55;
     font-weight: bold;
 }
 
-.bot-text {
-    color: #f0f0f0;
-    font-family: "Handjet", sans-serif;
-    font-size: 1.1rem;
+#repo-info {
+    background-color: #fffefe10;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
 }
 
-.bot-link {
-    text-decoration: none;
+#repo-info p {
+    margin: 0.5rem 0;
+    color: #FFF;
+}
+
+#repo-info a {
     color: #FFEB55;
-    font-size: 1.4rem;
+    text-decoration: none;
+    font-weight: bold;
     transition: color 0.3s ease;
 }
 
-.bot-link:hover {
+#repo-info a:hover {
     color: #fbd786;
 }
- #airdrop-section{
-    width:45%;
-    height:fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1.5rem 1.5rem;
-    gap: 1rem;
-    font-size: 1.9rem;
-    position: relative;
-    left: 45vw;
-    top:-50%;
-    border-radius: 20px;;
-    background: rgba(255, 255, 255, 0.1);
-    
-} 
 
-.airdrop-item {
+#crypto-suggestions {
+    display: none;
+    position: absolute;
     border: 1px solid #ccc;
-    padding: 10px;
-   width:40vw;
-    max-width: 100%;
-    margin-bottom: 10px;
     border-radius: 5px;
-    background-color:rgba(255, 255, 255, 0.1);
+    background-color: #fff;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 90%;
+    z-index: 1000;
+    left: 5%;
+    color: #000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.airdrop-item h4 {
-    margin: 0;
-    font-size: 18px;
+#crypto-suggestions div {
+    padding: 10px;
+    cursor: pointer;
 }
 
-.airdrop-item p {
-    margin: 5px 0;
+#crypto-suggestions div:hover {
+    background-color: #f0f0f0;
 }
 
-/* Media Queries */
-@media (min-width: 1024px) {
-    #main {
-        font-size: 6vw;  
-        left: 15vw;      
+@media (min-width: 768px) {
+    .central {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
     }
-
-    #icon1 {
-        top: 50vh;       
-        left: 10vw;       
-    }
-
-    #icon2 {
-        top: 20vh;
-        right: -2vw; 
-        width: 20vw; 
-    }
-
-    #icon3 {
-        top: 30vh;  
-        left: 20vw;    
-        width: 15vw;  
-    }
-
-    .contract {
-        width: 10vw;     
-        height: 7vh;    
+    
+    #crypto-price-predictor {
+        width: 45%;
     }
 
     .tagline {
-        font-size: 0.5rem;
+        font-size: 2.5rem;
+        max-width: 70%;
     }
 
-    #crypto-price-predictor {
-        width: 96%;
-    }
-}
-
-@media (max-width: 1024px) and (min-width: 768px) {
-    #main {
-        font-size: 5vw; 
-        left: 5%;
-    }
-
-    #icon1 {
-        top: 55vh;       
-        left: 5vw;       
-        width: 30vw; 
-    }
-
-    #icon2 {
-        top: 15vh;
-        right: 5vw; 
-        width: 30vw; 
-    }
-
-    #icon3 {
-        top: 40vh;  
-        left: 15vw;    
-        width: 20vw;  
-    }
-
-    .contract {
-        width: 15%;
-        height: 9%;
-    }
-
-    .tagline {
-        font-size: 1.4rem;
-    }
-
-    #crypto-price-predictor {
-        width: 90%;
+    .header h1 {
+        font-size: 3rem;
     }
 }
 
-@media (max-width: 768px) and (min-width: 480px) {
-    #main {
-        font-size: 4vw; 
-        left: 5%;
-    }
-
-    #icon1 {
-        top: 60vh;       
-        left: 3vw;       
-        width: 40vw; 
-    }
-
-    #icon2 {
-        top: 25vh;
-        right: 3vw; 
-        width: 40vw; 
-    }
-
-    #icon3 {
-        top: 50vh;  
-        left: 10vw;    
-        width: 25vw;  
-    }
-
-    .contract {
-        width: 25%; 
-        height: 9%;
-    }
-
-    .tagline {
-        font-size: 1.2rem;
-    }
-
+@media (max-width: 767px) {
     #crypto-price-predictor {
-        width: 90%; 
-    }
-}
-
-@media (max-width: 480px) {
-    #main {
-        font-size: 6vw; 
-        left: 2%;
+        width: 100%; 
+        padding: 1.2rem;
     }
 
-    #icon1 {
-        top: 55vh;       
-        left: 3vw;       
-        width: 50vw; 
+    #crypto {
+        font-size: 1rem; 
     }
 
-    #icon2 {
-        top: 20vh;
-        right: 5vw; 
-        width: 50vw; 
-    }
-
-    #icon3 {
-        top: 40vh;  
-        left: 5vw;    
-        width: 30vw;  
-    }
-
-    .contract {
-        width: 30%; 
-        height: 9%;
+    #predict-btn {
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
     }
 
     .tagline {
         font-size: 1rem;
+        max-width: 90%;
+        text-align: center;
+        margin: 0.8rem auto;
     }
 
-    #crypto-price-predictor {
-        width: 90%; 
+    .header h1 {
+        font-size: 1.4rem;
+    }
+
+    #repo-info {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    #repo-info h2{
+        font-size: 1rem;
+    }
+
+    #repo-info p {
+        font-size: 0.9rem;
+        margin: 0.5rem auto;
+        max-width: 90%;
+    }
+
+    #repo-info a {
+        font-size: 1rem;
+        word-wrap: break-word;
     }
 }
-#Telegram{
-    width:3vw;
-    margin-bottom: -1vw;
 
+
+
+#telegram-bot {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.bot-link{
+    text-decoration: none;
+    color: #FFEB55;
+}
+
+.bot-text{
+    font-size: 1rem;
+    margin-block: 0px;
 }

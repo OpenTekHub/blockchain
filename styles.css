@@ -219,3 +219,22 @@ h1, h2, h3 {
         word-wrap: break-word;
     }
 }
+
+
+
+#telegram-bot {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.bot-link{
+    text-decoration: none;
+    color: #FFEB55;
+}
+
+.bot-text{
+    font-size: 1rem;
+    margin-block: 0px;
+}

@@ -359,7 +359,7 @@ h1, h2, h3 {
     text-shadow: 
         0 0 10px rgb(220, 171, 255),   
         0 0 20px rgba(243, 230, 255, 0.8);
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .faq-heading {
@@ -379,7 +379,7 @@ h1, h2, h3 {
 }
   
 .faq {
-    width: 1000px;
+    width: auto;
     margin: 0 auto;
     background: #FFFF00;
     position: relative;

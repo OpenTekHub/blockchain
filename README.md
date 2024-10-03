@@ -8,7 +8,7 @@ You can explore the project live at [OpenTekHub Blockchain](https://opentekhub.g
 
 ## About the Project
 
-This repository focuses on building and implementing cryptocurrency features like price prediction. We encourage blockchain enthusiasts to contribute to this open-source project, making it an educational platform for developers worldwide.
+This repository aims to provide a comprehensive platform for implementing cryptocurrency-related features, such as real-time price predictions using machine learning models. By fostering collaboration among blockchain enthusiasts, it serves as a valuable educational resource, empowering developers to deepen their understanding of decentralized finance and cutting-edge technology. Contributions are encouraged to enhance the platform's capabilities and accessibility for a global developer community.
 
 ### Key Features
 

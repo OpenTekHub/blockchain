@@ -11,9 +11,23 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
+img{
+    width:5vw;
 
+}
+#Telegram{
+    position:relative;
+    top:1.9vw
+
+} 
 h1, h2, h3 {
     margin: 0;
+}
+#git{
+    position:relative;
+    top:1.4vw;
+    max-width: 4vw;
+    min-width:2vw;
 }
 
 .header {

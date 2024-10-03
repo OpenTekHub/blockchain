@@ -32,7 +32,7 @@ h1, h2, h3 {
 
 .header {
     text-align: center;
-    background-color: #2E073F;
+    background: linear-gradient(135deg, rgb(36, 11, 54), rgb(195, 20, 50));
     color: #EBD3F8;
     padding: 1.2rem;
     font-family: "Mate SC", serif;
@@ -251,4 +251,55 @@ h1, h2, h3 {
 .bot-text{
     font-size: 1rem;
     margin-block: 0px;
+}
+
+
+/* Here are the styles for the theme toggel  */
+/* Theme switcher */
+.theme-switch {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background: linear-gradient(116deg, #ffffff, #a00101);
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    vertical-align: middle;
+}
+
+.theme-switch::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px; /* Initial position for light mode */
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: left 0.3s ease-in-out, background-image 0.3s ease-in-out;
+    background-image: url('Assets/moon.png'); /* Icon for light mode */
+}
+
+.theme-switch.dark-theme {
+    background: linear-gradient(92deg, #ff0000, #ffffff); /* Background for dark mode */
+}
+
+.theme-switch.dark-theme::before {
+    left: 33px; /* Move the toggle to the right for dark mode */
+    background-image: url('Assets/sun.png'); /* Icon for dark mode */
+}
+
+/* Other dark mode styles */
+.header.dark-mode {
+    background: linear-gradient(303deg, #000000, #500210);
+} 
+
+body.dark-mode{
+    background: linear-gradient(303deg, #000000, #500210);
+    color: #ffecec;
+}
+p.tagline.dark-mode{
+    color: #ffffff;
 }

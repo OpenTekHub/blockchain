@@ -12,12 +12,24 @@
 </head>
 
 <body>
-    <header class="header">
-        <nav>
-            <h1>OpenTekHub Blockchain Repository</h1>
+
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <div class="hamburger-lines" onclick="toggleMenu()">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
             <div class="theme-switch" id="theme-switch"></div>
-        </nav>
-    </header>
+            <h1 class="logo">OpenTekHub Blockchain Repository</h1>
+        </div>
+    </nav>
 
     <div class="central">
         <p class="tagline">Explore the Blockchain implementation and predict the latest cryptocurrency prices.</p>
@@ -42,6 +54,119 @@
             </div>
         </section>
     </div>
+
+    <!-- About Section -->
+    <header class="header">
+        <h1>About Us</h1>
+    </header>
+    
+    <section id="about" class="about section">
+        
+        <video autoplay muted loop class="background-video">
+            <source src="public/about-bgvideo.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+
+        <p class="tagline">
+            Empowering Blockchain Innovations Through Technology
+        </p>
+        <div class="content">
+            <p>
+                At OpenTekHub, we are passionate about leveraging blockchain technology to create innovative 
+                solutions that empower industries and individuals. Our Blockchain repository is part of the 
+                Winter of Blockchain (WoB) initiative, designed to provide an open-source platform for 
+                learning and collaboration within the blockchain community. With a focus on developing 
+                cryptocurrency features like price prediction, we aim to create a comprehensive educational 
+                resource for developers and blockchain enthusiasts alike. Join us on our journey to explore, 
+                contribute, and innovate in the realm of blockchain technology.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us section">
+        <div class="row">
+            <div class="card">
+                <span>01</span>
+                <h4>Cryptocurrency Price Prediction</h4>
+                <p>Utilize advanced algorithms to predict cryptocurrency prices, enabling informed investment decisions.</p>
+            </div>
+
+            <div class="card">
+                <span>02</span>
+                <h4>Telegram Bot Integration</h4>
+                <p>Engage users with a Telegram bot that provides real-time updates on cryptocurrency prices and project developments.</p>
+            </div>
+
+            <div class="card">
+                <span>03</span>
+                <h4>Open-source Collaboration</h4>
+                <p>Join our open-source platform to collaborate on blockchain projects, sharing knowledge and contributing to innovations.</p>
+            </div>
+
+            <div class="card">
+                <span>04</span>
+                <h4>Educational Resources</h4>
+                <p>Access comprehensive educational materials and tutorials to enhance your understanding of blockchain technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section-->
+
+    <section id="faq" class="faq section">
+        <header class="header">
+            <h1>Frequently Asked Questions</h1>
+        </header>
+
+        <p class="tagline">
+            Explore commonly asked questions about OpenTekHub and discover how we support technology innovations.
+        </p>
+
+        <div class='faq'>
+            <input id='faq-a' type='checkbox'>
+            <label for='faq-a'>
+              <p class="faq-heading">🤔 What is cryptocurrency?</p>
+              <div class='faq-arrow'></div>
+                <p class="faq-text">Cryptocurrency is a type of digital or virtual currency that uses cryptography for security. It operates on decentralized networks based on blockchain technology, making it secure and difficult to counterfeit.</p>
+            </label>
+          
+            <input id='faq-b' type='checkbox'>
+            <label for='faq-b'>
+              <p class="faq-heading">📜 What is blockchain technology?</p>
+              <div class='faq-arrow'></div>
+                <p class="faq-text">Blockchain is a distributed ledger technology that securely records transactions across many computers. This ensures that the recorded transactions cannot be altered retroactively, providing transparency and security.</p>
+            </label>
+            
+            <input id='faq-c' type='checkbox'>
+            <label for='faq-c'>
+              <p class="faq-heading">📈 What is the cryptocurrency price predictor feature?</p>
+              <div class='faq-arrow'></div>
+                <p class="faq-text">The cryptocurrency price predictor feature uses historical data and machine learning algorithms to forecast future prices of various cryptocurrencies, helping users make informed investment decisions.</p>
+            </label>
+            
+            <input id='faq-d' type='checkbox'>
+            <label for='faq-d'>
+              <p class="faq-heading">🤖 How does the Telegram bot work?</p>
+              <div class='faq-arrow'></div>
+                <p class="faq-text">The Telegram bot allows users to track cryptocurrency prices and receive updates directly in their Telegram app. Users can query prices, receive alerts on significant changes, and interact with the bot for the latest market information.</p>
+            </label>
+            
+            <input id='faq-e' type='checkbox'>
+            <label for='faq-e'>
+              <p class="faq-heading">🛡️ Is participating in this project safe?</p>
+              <div class='faq-arrow'></div>
+                <p class="faq-text">Absolutely! Contributing to this open-source project is safe and secure. Your contributions and interactions within the community are protected, ensuring a collaborative environment.</p>
+            </label>
+          
+            <input id='faq-f' type='checkbox'>
+            <label for='faq-f'>
+              <p class="faq-heading">🛠️ What do I need to contribute?</p>
+              <div class='faq-arrow'></div>
+                <p class="faq-text">To contribute, you don't need to provide access to your personal accounts or sensitive information. All you need is a GitHub account and some enthusiasm for blockchain and cryptocurrency!</p>
+            </label>
+        </div>
+    </section>
 
     <section id="repo-info">
 

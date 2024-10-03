@@ -6,19 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenTekHub Blockchain Repo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Gowun+Batang:wght@400;700&family=Mate+SC&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Gowun+Batang:wght@400;700&family=Mate+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header class="header">
-        <h1>OpenTekHub Blockchain Repository</h1>
-    </header>
+
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <div class="hamburger-lines" onclick="toggleMenu()">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="theme-switch" id="theme-switch"></div>
+            <h1 class="logo">OpenTekHub Blockchain Repository</h1>
+        </div>
+    </nav>
 
     <div class="central">
         <p class="tagline">Explore the Blockchain implementation and predict the latest cryptocurrency prices.</p>
-
+        
         <section id="crypto-price-predictor">
             <h2>Crypto Price Predictor</h2>
             <div id="crypto-form">
@@ -44,8 +59,9 @@
     <header class="header">
         <h1>About Us</h1>
     </header>
+    
     <section id="about" class="about section">
-
+        
         <video autoplay muted loop class="background-video">
             <source src="public/about-bgvideo.mp4" type="video/mp4">
         </video>
@@ -97,11 +113,12 @@
     </section>
 
     <!-- FAQ Section-->
-    <header class="header">
-        <h1>Frequently Asked Questions</h1>
-    </header>
 
     <section id="faq" class="faq section">
+        <header class="header">
+            <h1>Frequently Asked Questions</h1>
+        </header>
+
         <p class="tagline">
             Explore commonly asked questions about OpenTekHub and discover how we support technology innovations.
         </p>
@@ -152,6 +169,7 @@
     </section>
 
     <section id="repo-info">
+
         <h2>About the Repository</h2>
         <p>This repository demonstrates blockchain prices using api and javascript.</p>
         <a href="https://github.com/OpenTekHub/blockchain" target="_blank"><img src="public/github.png" alt=""  id="git">BlockChain Repository</a>

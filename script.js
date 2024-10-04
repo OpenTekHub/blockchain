@@ -37,15 +37,6 @@ if (localStorage.getItem('dark-mode') === 'enabled') {
 } else {
     disableDarkMode(); // Default to light mode on load if localStorage is empty
 }
-
-// navbar hamburger
-function toggleMenu() {
-    const menu = document.querySelector('.menu-items');
-    const hamburger = document.querySelector('.hamburger-lines');
-    menu.classList.toggle('menu-active');
-    hamburger.classList.toggle('hamburger-active');
-}
-
 // A map of symbols to their corresponding API names
 const cryptoMap = {
     // Major cryptocurrencies

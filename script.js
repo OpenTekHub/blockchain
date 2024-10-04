@@ -158,3 +158,89 @@ document.getElementById('predict-btn').addEventListener('click', function() {
         document.getElementById("price").innerText = "Please enter a valid cryptocurrency symbol.";
     }
 });
+// GSAP Animations
+document.addEventListener('DOMContentLoaded', () => {
+    // Timeline for header and intro text animations
+    let tl = gsap.timeline();
+
+    tl.from("header h1", {
+        y: -50,
+        opacity: 0,
+        duration: 1,
+        ease: "bounce.out"
+    });
+
+    tl.from(".tagline", {
+        x: -100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2
+    });
+
+    // Crypto price predictor section
+    tl.from("#crypto-price-predictor h2", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        delay: 0.3
+    });
+
+    tl.from("#crypto-form", {
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        ease: "power1.out"
+    });
+
+    tl.from("#predict-btn", {
+        scale: 0.5,
+        opacity: 0,
+        duration: 0.6,
+        ease: "back.out(1.5)",
+        delay: 0.2
+    });
+
+    // Animate the price result after prediction
+    gsap.from("#price-result", {
+        opacity: 0,
+        duration: 1,
+        ease: "power2.inOut",
+        delay: 1.5
+    });
+
+    // Telegram bot section animation
+    gsap.from("#telegram-bot", {
+        opacity: 0,
+        y: 100,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 1
+    });
+
+    // Repo info section
+    gsap.from("#repo-info h2", {
+        opacity: 0,
+        x: -100,
+        duration: 0.8,
+        ease: "power3.out",
+        delay: 1.5
+    });
+
+    gsap.from("#repo-info p", {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: "power3.out",
+        delay: 1.7
+    });
+
+    gsap.from("#repo-info a", {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.6,
+        ease: "elastic.out(1, 0.75)",
+        delay: 1.9
+    });
+});

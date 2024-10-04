@@ -1,3 +1,51 @@
+// Dark Mode Toggle Functionality
+const themeSwitch = document.getElementById('theme-switch'); // Ensure this matches your HTML button's ID
+const body = document.body;
+const header = document.querySelector('header');
+const footer = document.querySelector('footer');
+
+// Function to enable dark mode
+function enableDarkMode() {
+    body.classList.add('dark-mode');
+    header.classList.add('dark-mode');
+    themeSwitch.classList.add('dark-theme'); // Update the switch appearance
+    footer.classList.add('dark-mode');
+}
+
+// Function to disable dark mode
+function disableDarkMode() {
+    body.classList.remove('dark-mode');
+    header.classList.remove('dark-mode');
+    themeSwitch.classList.remove('dark-theme'); // Update the switch appearance
+    footer.classList.remove('dark-mode');
+}
+
+// Event listener for dark mode toggle button
+themeSwitch.addEventListener('click', () => {
+    if (body.classList.contains('dark-mode')) {
+        disableDarkMode(); // Switch to light mode
+        localStorage.removeItem('dark-mode'); // Remove from local storage
+    } else {
+        enableDarkMode(); // Switch to dark mode
+        localStorage.setItem('dark-mode', 'enabled'); // Save in local storage
+    }
+});
+
+// Optional: Check the initial mode on page load and apply the correct theme based on local storage
+if (localStorage.getItem('dark-mode') === 'enabled') {
+    enableDarkMode();
+} else {
+    disableDarkMode(); // Default to light mode on load if localStorage is empty
+}
+
+// navbar hamburger
+function toggleMenu() {
+    const menu = document.querySelector('.menu-items');
+    const hamburger = document.querySelector('.hamburger-lines');
+    menu.classList.toggle('menu-active');
+    hamburger.classList.toggle('hamburger-active');
+}
+
 // A map of symbols to their corresponding API names
 const cryptoMap = {
     // Major cryptocurrencies
@@ -158,6 +206,7 @@ document.getElementById('predict-btn').addEventListener('click', function() {
         document.getElementById("price").innerText = "Please enter a valid cryptocurrency symbol.";
     }
 });
+
 // GSAP Animations
 document.addEventListener('DOMContentLoaded', () => {
     // Timeline for header and intro text animations
@@ -244,3 +293,6 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 1.9
     });
 });
+=======
+
+

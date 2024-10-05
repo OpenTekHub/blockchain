@@ -62,4 +62,10 @@ Don’t forget to star ⭐ the repository and follow the [OpenTekHub](https://gi
 - **Explore**: Take a look at our [live website](https://opentekhub.github.io/blockchain/) to get a feel for the project.
 - **Check out the issues**: We frequently update the [Issues](https://github.com/OpenTekHub/blockchain/issues) section with bugs, features, and other contributions we need help with.
 - **Contact us**: If you need assistance or have any questions, feel free to reach out by opening a new issue or emailing the maintainers.
+- 
 
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" width="35" height="35"> Contributors
+
+Big thanks to all the contributors! 🎉
+
+<a href="https://github.com/OpenTekHub/blockchain/pulse"> <img align="center" src="https://contrib.rocks/image?max=100&repo=OpenTekHub/blockchain" /> </a> 

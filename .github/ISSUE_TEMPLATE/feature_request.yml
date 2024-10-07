@@ -1,6 +1,6 @@
 name: ✨ Feature Request
-description: Suggest a feature
-title: "[Feature Request]: "
+description: Displaying of all the symbols which we have in our library.
+title: "[Feature Request]: Displaying of all the symbols which we have in our library"
 body:
   - type: checkboxes
     id: existing-issue
@@ -18,6 +18,8 @@ body:
       placeholder: Describe the new feature or enhancement you'd like to see.
     validations:
       required: true
+    value: |
+      We would like to implement a feature that displays all cryptocurrency symbols available in our library. This will allow users to easily browse and select the cryptocurrency they are interested in without needing to know the symbol beforehand. The symbols should be displayed in a user-friendly format, possibly including the full name and abbreviation (e.g., Bitcoin (BTC)).
   - type: textarea
     id: use-case
     attributes:
@@ -26,12 +28,16 @@ body:
       placeholder: Describe a specific use case or scenario where this feature would be beneficial.
     validations:
       required: true
+    value: |
+      This feature would enhance user experience by helping them quickly find and select the cryptocurrency they are looking for, even if they do not know the symbol. It makes navigation more intuitive and streamlines the interaction with the system.
   - type: textarea
     id: benefits
     attributes:
       label: Benefits
       description: What benefits would this feature bring to the project or community?
       placeholder: Explain the advantages of implementing this feature.
+    value: |
+      The primary benefit is improving the user interface and overall experience by providing easier navigation and search capabilities. Users will be able to make selections faster, leading to more efficient interactions and potentially increasing usage of the system.
   - type: dropdown
     id: priority
     attributes:
@@ -50,10 +56,10 @@ body:
       label: Record
       options:
         - label: "I agree to follow this project's Code of Conduct"
-          required: true
+          required: yes
         - label: "I'm a GSSOC contributor"
-          required: False
+          required: yes
         - label: "I want to work on this issue"
-          required: False
+          required: yes
         - label: "I'm willing to provide further clarification or assistance if needed."
-          required: False
+          required: yes

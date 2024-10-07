@@ -1,3 +1,138 @@
+const cryptoMap = {
+    'BTC': { name: 'Bitcoin', apiName: 'bitcoin' },
+    'ETH': { name: 'Ethereum', apiName: 'ethereum' },
+    'USDT': { name: 'Tether', apiName: 'tether' },
+    'BNB': { name: 'Binance Coin', apiName: 'binancecoin' },
+    'XRP': { name: 'Ripple', apiName: 'ripple' },
+    'DOGE': { name: 'Dogecoin', apiName: 'dogecoin' },
+    'ADA': { name: 'Cardano', apiName: 'cardano' },
+    'SOL': { name: 'Solana', apiName: 'solana' },
+    'DOT': { name: 'Polkadot', apiName: 'polkadot' },
+    'MATIC': { name: 'Polygon (Matic)', apiName: 'matic-network' },
+    'SHIB': { name: 'Shiba Inu', apiName: 'shiba-inu' },
+    'LTC': { name: 'Litecoin', apiName: 'litecoin' },
+    'TRX': { name: 'Tron', apiName: 'tron' },
+    'AVAX': { name: 'Avalanche', apiName: 'avalanche-2' },
+    'ATOM': { name: 'Cosmos', apiName: 'cosmos' },
+    'LINK': { name: 'Chainlink', apiName: 'chainlink' },
+    'XMR': { name: 'Monero', apiName: 'monero' },
+    'BCH': { name: 'Bitcoin Cash', apiName: 'bitcoin-cash' },
+    'ALGO': { name: 'Algorand', apiName: 'algorand' },
+    'ICP': { name: 'Internet Computer', apiName: 'internet-computer' },
+    'VET': { name: 'Vechain', apiName: 'vechain' },
+    'FIL': { name: 'Filecoin', apiName: 'filecoin' },
+    'NEAR': { name: 'Near', apiName: 'near' },
+    'HBAR': { name: 'Hedera Hashgraph', apiName: 'hedera-hashgraph' },
+    'TON': { name: 'Toncoin', apiName: 'toncoin' },
+    'SUI': { name: 'Sui', apiName: 'sui' },
+    'OP': { name: 'Optimism', apiName: 'optimism' },
+    'INJ': { name: 'Injective', apiName: 'injective' },
+    'ARB': { name: 'Arbitrum', apiName: 'arbitrum' },
+    'DAI': { name: 'Dai', apiName: 'dai' },
+    'BUSD': { name: 'Binance USD', apiName: 'binance-usd' },
+    'PAX': { name: 'Paxos Standard', apiName: 'paxos-standard' },
+    'UNI': { name: 'Uniswap', apiName: 'uniswap' },
+    'AAVE': { name: 'Aave', apiName: 'aave' },
+    'SUSHI': { name: 'SushiSwap', apiName: 'sushi' },
+    'COMP': { name: 'Compound', apiName: 'compound-governance-token' },
+    'YFI': { name: 'Yearn Finance', apiName: 'yearn-finance' },
+    'LRC': { name: 'Loopring', apiName: 'loopring' },
+    'ZRX': { name: '0x', apiName: '0x' },
+    'OMG': { name: 'OmiseGO', apiName: 'omisego' },
+    'MANA': { name: 'Decentraland', apiName: 'decentraland' },
+    'SAND': { name: 'The Sandbox', apiName: 'the-sandbox' },
+    'ENJ': { name: 'Enjin Coin', apiName: 'enjincoin' },
+    'AXS': { name: 'Axie Infinity', apiName: 'axie-infinity' },
+    'GALA': { name: 'Gala', apiName: 'gala' },
+    'ZEC': { name: 'Zcash', apiName: 'zcash' },
+    'DASH': { name: 'Dash', apiName: 'dash' },
+    'FTM': { name: 'Fantom', apiName: 'fantom' },
+    'GRT': { name: 'The Graph', apiName: 'the-graph' },
+    'CHZ': { name: 'Chiliz', apiName: 'chiliz' },
+    'BAT': { name: 'Basic Attention Token', apiName: 'basic-attention-token' },
+    'CRV': { name: 'Curve DAO Token', apiName: 'curve-dao-token' },
+    'KSM': { name: 'Kusama', apiName: 'kusama' },
+    'QTUM': { name: 'Qtum', apiName: 'qtum' },
+    'ZIL': { name: 'Zilliqa', apiName: 'zilliqa' },
+    'EGLD': { name: 'Elrond', apiName: 'elrond-erd-2' },
+    'HOT': { name: 'Holo', apiName: 'holotoken' },
+    'THETA': { name: 'Theta', apiName: 'theta-token' },
+    'HNT': { name: 'Helium', apiName: 'helium' },
+    'SNX': { name: 'Synthetix', apiName: 'synthetix-network-token' },
+    'RUNE': { name: 'Thorchain', apiName: 'thorchain' },
+    'XLM': { name: 'Stellar', apiName: 'stellar' },
+    'REN': { name: 'Ren', apiName: 'ren' },
+    'FTT': { name: 'FTX Token', apiName: 'ftx-token' },
+    'RVN': { name: 'Ravencoin', apiName: 'ravencoin' },
+    'KAVA': { name: 'Kava', apiName: 'kava' },
+    'CRO': { name: 'Crypto.com Coin', apiName: 'crypto-com-chain' },
+    'MIOTA': { name: 'IOTA', apiName: 'iota' },
+    'ETC': { name: 'Ethereum Classic', apiName: 'ethereum-classic' },
+    'BABYDOGE': { name: 'Baby Doge Coin', apiName: 'baby-doge-coin' },
+    'SAFEMOON': { name: 'Safemoon', apiName: 'safemoon' },
+    'ELON': { name: 'Dogelon Mars', apiName: 'dogelon-mars' },
+    'PEPE': { name: 'Pepe', apiName: 'memetic' },
+    'WIF': { name: 'Dogwithat', apiName: 'dogwithat' },
+    'BONK': { name: 'Bonk', apiName: 'bonk' },
+    'FLOKI': { name: 'Floki', apiName: 'floki' },
+    'MKR': { name: 'Maker', apiName: 'maker' },
+    'BAL': { name: 'Balancer', apiName: 'balancer' },
+    'WLD': { name: 'Worldcoin', apiName: 'worldcoin' },
+    'OM': { name: 'Mantra DAO', apiName: 'mantra-dao' },
+    'PHB': { name: 'Phoenix', apiName: 'phoenix' },
+    'LISTA': { name: 'Lista', apiName: 'lista' },
+    'RENDER': { name: 'Render', apiName: 'render' }
+};
+
+const cryptoInput = document.getElementById('crypto');
+const suggestionsBox = document.getElementById('crypto-suggestions');
+
+cryptoInput.addEventListener('input', function() {
+    const inputValue = cryptoInput.value.toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    const filteredCryptos = Object.keys(cryptoMap).filter(crypto =>
+        crypto.includes(inputValue) || cryptoMap[crypto].name.toLowerCase().includes(inputValue)
+    ).slice(0, 100); 
+
+    if (inputValue && filteredCryptos.length > 0) {
+        suggestionsBox.style.display = 'block';
+        filteredCryptos.forEach(crypto => {
+            const suggestionItem = document.createElement('div');
+            suggestionItem.textContent = `${cryptoMap[crypto].name} (${crypto})`; // Display name and symbol
+            suggestionItem.addEventListener('click', function() {
+                cryptoInput.value = crypto; // Set only the symbol in the input
+                suggestionsBox.style.display = 'none';
+            });
+            suggestionsBox.appendChild(suggestionItem);
+        });
+    } else {
+        suggestionsBox.style.display = 'none';
+    }
+});
+
+document.getElementById('predict-btn').addEventListener('click', function() {
+    const cryptoInputValue = cryptoInput.value.toUpperCase();
+    const crypto = cryptoMap[cryptoInputValue];
+
+    if (crypto) {
+        fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${crypto.apiName}&vs_currencies=usd`)
+        .then(response => response.json())
+        .then(data => {
+            if (data[crypto.apiName]) {
+                document.getElementById("price").innerText = "$" + data[crypto.apiName].usd;
+            } else {
+                document.getElementById("price").innerText = "Cryptocurrency not found!";
+            }
+        })
+        .catch(error => {
+            document.getElementById("price").innerText = "Error fetching price data.";
+            console.error("Error:", error);
+        });
+    } else {
+        document.getElementById("price").innerText = "Please enter a valid cryptocurrency symbol.";
+    }
+});
 // Dark Mode Toggle Functionality
 const themeSwitch = document.getElementById('theme-switch'); // Ensure this matches your HTML button's ID
 const body = document.body;
@@ -45,165 +180,3 @@ function toggleMenu() {
     menu.classList.toggle('menu-active');
     hamburger.classList.toggle('hamburger-active');
 }
-
-// A map of symbols to their corresponding API names
-const cryptoMap = {
-    // Major cryptocurrencies
-    'BTC': 'bitcoin',
-    'ETH': 'ethereum',
-    'USDT': 'tether',
-    'BNB': 'binancecoin',
-    'USDC': 'usd-coin',
-    'XRP': 'ripple',
-    'DOGE': 'dogecoin',
-    'ADA': 'cardano',
-    'SOL': 'solana',
-    'DOT': 'polkadot',
-    'MATIC': 'matic-network',
-    'SHIB': 'shiba-inu',
-    'LTC': 'litecoin',
-    'TRX': 'tron',
-    'AVAX': 'avalanche-2',
-    'ATOM': 'cosmos',
-    'LINK': 'chainlink',
-    'XMR': 'monero',
-    'BCH': 'bitcoin-cash',
-    'ALGO': 'algorand',
-    'ICP': 'internet-computer',
-    'VET': 'vechain',
-    'FIL': 'filecoin',
-    'NEAR': 'near',
-    'HBAR': 'hedera-hashgraph',
-    'TON': 'toncoin',
-    'SUI':'sui',
-    'OP': 'optimism',
-    'INJ': 'injective',
-    'ARB': 'arbitrum',
-
-    // Stablecoins
-    'DAI': 'dai',
-    'BUSD': 'binance-usd',
-    'PAX': 'paxos-standard',
-    
-    // DeFi tokens
-    'UNI': 'uniswap',
-    'AAVE': 'aave',
-    'SUSHI': 'sushi',
-    'COMP': 'compound-governance-token',
-    'YFI': 'yearn-finance',
-    
-    // Layer 2 solutions and scaling
-    'LRC': 'loopring',
-    'ZRX': '0x',
-    'OMG': 'omisego',
-
-    // NFT and metaverse tokens
-    'MANA': 'decentraland',
-    'SAND': 'the-sandbox',
-    'ENJ': 'enjincoin',
-    'AXS': 'axie-infinity',
-    'GALA': 'gala',
-
-    // Privacy coins
-    'ZEC': 'zcash',
-    'DASH': 'dash',
-
-    // Other popular tokens
-    'FTM': 'fantom',
-    'GRT': 'the-graph',
-    '1INCH': '1inch',
-    'CHZ': 'chiliz',
-    'BAT': 'basic-attention-token',
-    'CRV': 'curve-dao-token',
-    'KSM': 'kusama',
-    'QTUM': 'qtum',
-    'ZIL': 'zilliqa',
-    'EGLD': 'elrond-erd-2',
-    'HOT': 'holotoken',
-    'THETA': 'theta-token',
-    'HNT': 'helium',
-    'SNX': 'synthetix-network-token',
-    'RUNE': 'thorchain',
-    'XLM': 'stellar',
-    'REN': 'ren',
-    'FTT': 'ftx-token',
-    'RVN': 'ravencoin',
-    'KAVA': 'kava',
-    'CRO': 'crypto-com-chain',
-    'MIOTA': 'iota',
-    'ETC': 'ethereum-classic',
-
-    // Meme coins
-    'BABYDOGE': 'baby-doge-coin',
-    'SAFEMOON': 'safemoon',
-    'ELON': 'dogelon-mars',
-    'PEPE': 'memetic',
-    'WIF': 'dogwithat',
-    'BONK': 'bonk',
-    'FLOKI': 'floki',
-    
-    // Add more symbols and tokens as needed
-    'WETH': 'wrapped-ethereum',
-    'MKR': 'maker',
-    'BAL': 'balancer',
-    'WLD': 'worldcoin',
-    'OM': 'mantra-dao',
-    'PHB': 'phoenix',
-    'LISTA': 'lista',
-    'RENDER': 'render',
-};
-
-const cryptoInput = document.getElementById('crypto');
-const suggestionsBox = document.getElementById('crypto-suggestions');
-
-cryptoInput.addEventListener('input', function() {
-    const inputValue = cryptoInput.value.toUpperCase();
-    suggestionsBox.innerHTML = ''; 
-
-    const filteredCryptos = Object.keys(cryptoMap).filter(crypto => crypto.includes(inputValue));
-
-    if (inputValue && filteredCryptos.length > 0) {
-        suggestionsBox.style.display = 'block';
-        filteredCryptos.forEach(crypto => {
-            const suggestionItem = document.createElement('div');
-            suggestionItem.textContent = crypto;
-            suggestionItem.addEventListener('click', function() {
-                cryptoInput.value = crypto; 
-                suggestionsBox.style.display = 'none'; 
-            });
-            suggestionsBox.appendChild(suggestionItem);
-        });
-    } else {
-        suggestionsBox.style.display = 'none';
-    }
-});
-
-document.addEventListener('click', function(event) {
-    if (!event.target.closest('#crypto-form')) {
-        suggestionsBox.style.display = 'none';
-    }
-});
-
-document.getElementById('predict-btn').addEventListener('click', function() {
-    const cryptoInputValue = cryptoInput.value.toUpperCase();
-    const crypto = cryptoMap[cryptoInputValue];
-
-    if (crypto) {
-        fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${crypto}&vs_currencies=usd`)
-        .then(response => response.json())
-        .then(data => {
-            if (data[crypto]) {
-                document.getElementById("price").innerText = "$" + data[crypto].usd;
-            } else {
-                document.getElementById("price").innerText = "Cryptocurrency not found!";
-            }
-        })
-        .catch(error => {
-            document.getElementById("price").innerText = "Error fetching price data.";
-            console.error("Error:", error);
-        });
-    } else {
-        document.getElementById("price").innerText = "Please enter a valid cryptocurrency symbol.";
-    }
-});
-

@@ -1,0 +1,206 @@
+<html>
+<head>
+    <title>Open Tek Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0d0d1a;
+            color: #fff;
+            text-align: center;
+        }
+        .navbar {
+            background: linear-gradient(to bottom, #1a1a2e, #0d0d1a);
+            padding: 20px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .navbar a.active {
+            border-bottom: 2px solid #fff;
+        }
+        
+        .container {
+            padding: 50px 20px;
+        }
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .form-group select, .form-group input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1a1a2e;
+            color: #fff;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background-color: #1a1a2e;
+            padding: 50px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: left;
+        }
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .card .chart {
+            height: 100px;
+        }
+        .card .buy-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+    <h1>OPENTEK HUB</h1>
+    <div class="navbar">
+        <a href="home.html" class="active">Home</a>
+        <a href="#about-us">About Us</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#">Contact Us</a>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <select id="coin-select">
+                <option>Bitcoin</option>
+                <!-- Add other options as needed -->
+            </select>
+            <input type="number" id="amount-input" placeholder="10,500">
+            <input type="date" id="withdraw-date" value="2023-10-14">
+        </div>
+        <h1>CONCLUSION</h1>
+        <div class="cards">
+            <div class="card">
+                <h2>Supposed Price</h2>
+                <canvas id="priceChart" class="chart"></canvas>
+                <p id="price-info">BTC $31,671.45 <span style="color: #4caf50;">+5.4%</span></p>
+            </div>
+            <div class="card">
+                <h2>Starting Investment</h2>
+                <p>USD <span id="usd-amount">10,500.00</span></p>
+                <p>BTC <span id="btc-amount">2.5184</span></p>
+                <a href="#" class="buy-button">BUY CRYPTO</a>
+            </div>
+            <div class="card">
+                <h2>Supposed Profit</h2>
+                <canvas id="profitChart" class="chart"></canvas>
+                <p>+ <span id="profit-amount">$1994.16</span></p>
+                <p>for 45 days</p>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The "About Us" section -->
+<section id="about-us">
+    <h2>About Us</h2>
+    <p>Welcome to OpenTek Hub, your number one source for all things crypto. We're dedicated to providing you the very best of cryptocurrency investment insights, with an emphasis on reliability, customer service, and uniqueness.</p>
+    <p>Founded in 2023, OpenTek Hub has come a long way from its beginnings. When we first started out, our passion for crypto investment drove us to start our own business.</p>
+    <p>We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.</p>
+</section>
+
+<div class="section" id="faqs">
+    <h2>FAQs</h2>
+    <div class="faq">
+        <h3>What is cryptocurrency?</h3>
+        <p>Cryptocurrency is a type of digital or virtual currency that uses cryptography for security. It is decentralized and typically operates on a technology called blockchain.</            <h3>How do I start investing in cryptocurrency?</h3>
+        <p>To start investing in cryptocurrency, you need to choose a reliable exchange, create an account, and deposit funds. From there, you can buy and trade various cryptocurrencies.</p>
+        <h3>Is cryptocurrency a safe investment?</h3>
+        <p>Cryptocurrency investments come with risks, just like any other investment. It's important to do thorough research and understand the market before investing.</p>
+        <h3>How can I track my cryptocurrency investments?</h3>
+        <p>You can track your cryptocurrency investments using various portfolio tracking apps and tools that provide real-time updates on prices and market trends.</p>
+    </div>
+</div>
+
+    <script>
+        // Initialize charts
+        const priceCtx = document.getElementById('priceChart').getContext('2d');
+        const profitCtx = document.getElementById('profitChart').getContext('2d');
+
+        const priceChart = new Chart(priceCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                datasets: [{
+                    label: 'Price',
+                    data: [30000, 32000, 31000, 33000, 34000, 35000, 36000, 37000, 38000, 39000],
+                    borderColor: '#ff4b2b',
+                    backgroundColor: 'rgba(255, 75, 43, 0.2)',
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true
+                    },
+                    y: {
+                        display: true
+                    }
+                }
+            }
+        });
+
+        const profitChart = new Chart(profitCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Initial Capital', 'Profit'],
+                datasets: [{
+                    data: [10000, 1994.16],
+                    backgroundColor: ['#1a1a2e', '#ff4b2b']
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: '70%'
+            }
+        });
+
+        // AI-based crypto calculator (dummy implementation)
+        document.getElementById('amount-input').addEventListener('input', function() {
+            const amount = parseFloat(this.value);
+            const btcPrice = 31671.45; // Example BTC price
+            const btcAmount = amount / btcPrice;
+            const profit = btcAmount * btcPrice * 0.05; // Example profit calculation
+
+            document.getElementById('usd-amount').textContent = amount.toFixed(2);
+            document.getElementById('btc-amount').textContent = btcAmount.toFixed(4);
+            document.getElementById('profit-amount').textContent = profit.toFixed(2);
+
+            // Update profit chart
+            profitChart.data.datasets[0].data = [amount, profit];
+            profitChart.update();
+        });
+    </script>
+</body>
+</html>

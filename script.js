@@ -194,6 +194,7 @@ document.getElementById('predict-btn').addEventListener('click', function() {
         .then(data => {
             if (data[crypto]) {
                 document.getElementById("price").innerText = "$" + data[crypto].usd;
+                alert(`The current price of ${cryptoInputValue} is $${data[crypto].usd}`); // Alert with the price
             } else {
                 document.getElementById("price").innerText = "Cryptocurrency not found!";
             }
@@ -257,42 +258,21 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 1,
         ease: "power2.inOut",
         delay: 1.5
-    });
+   Here's the continuation and completion of your `script.js` file:
 
-    // Telegram bot section animation
-    gsap.from("#telegram-bot", {
-        opacity: 0,
-        y: 100,
-        duration: 0.8,
-        ease: "power2.out",
-        delay: 1
-    });
-
-    // Repo info section
-    gsap.from("#repo-info h2", {
-        opacity: 0,
-        x: -100,
-        duration: 0.8,
-        ease: "power3.out",
-        delay: 1.5
-    });
-
-    gsap.from("#repo-info p", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: "power3.out",
-        delay: 1.7
-    });
-
-    gsap.from("#repo-info a", {
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.6,
-        ease: "elastic.out(1, 0.75)",
-        delay: 1.9
+```javascript
     });
 });
-=======
 
-
+// Fetch price function to handle error alerts
+function fetchPrice(crypto) {
+    return fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${crypto}&vs_currencies=usd`)
+        .then(response => response.json())
+        .then(data => {
+            if (data[crypto]) {
+                return data[crypto].usd;
+            } else {
+                throw new Error('Cryptocurrency not found');
+            }
+        });
+}

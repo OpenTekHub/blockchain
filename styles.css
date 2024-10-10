@@ -1,10 +1,10 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #240b36, #c31432);
+    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Neon Pink */
     color: white;
     height: 100vh;
-    font-family: "Gowun Batang", serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
     display: flex;
@@ -34,20 +34,20 @@ h1, h2, h3 {
 
 .header {
     text-align: center;
-    background: linear-gradient(135deg, rgb(36, 11, 54), rgb(195, 20, 50));
-    color: #EBD3F8;
+    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Neon Pink */
+    color: white;
     padding: 1.2rem;
-    font-family: "Mate SC", serif;
+    font-family: "Roboto", sans-serif;
     font-size: 1.8rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .tagline {
     text-align: center;
-    font-family: "Fredoka", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 1.6rem;
-    color: #FFEB55;
+    color: #ffffff;
     margin: 1rem auto;
     max-width: 85%;
 }
@@ -79,8 +79,8 @@ h1, h2, h3 {
 
 #crypto-price-predictor h2 {
     margin-bottom: 0.6rem;
-    color: #FFEB55;
-    font-family: "Fredoka", sans-serif;
+    color: white;
+    font-family: "Roboto", sans-serif;
     font-size: 1.3rem;
 }
 
@@ -100,11 +100,11 @@ h1, h2, h3 {
 }
 
 #predict-btn {
-    font-family: "Fredoka", sans-serif;
+    font-family: "Roboto", sans-serif;
     border-radius: 19px;
-    color: #000;
+    color: white;
     font-size: 1.1rem;
-    background: #FFEB55;
+    background: rgb(5, 11, 44);
     padding: 0.6rem 1.8rem;
     border: none;
     cursor: pointer;
@@ -122,7 +122,7 @@ h1, h2, h3 {
 #price {
     margin-top: 0;
     font-size: 1.5rem;
-    color: #FFEB55;
+    color: white;
     font-weight: bold;
 }
 
@@ -140,7 +140,7 @@ h1, h2, h3 {
 }
 
 #repo-info a {
-    color: #FFEB55;
+    color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -251,7 +251,7 @@ h1, h2, h3 {
 
 .bot-link{
     text-decoration: none;
-    color: #FFEB55;
+    color: white;
 }
 
 .bot-text{
@@ -342,7 +342,7 @@ p.tagline.dark-mode{
 }
 
 .tagline {
-    color: #FFFF00; 
+    color: white; 
     position: relative; 
     z-index: 3; 
     font-size: 35px; 
@@ -366,7 +366,7 @@ p.tagline.dark-mode{
 
 /* Why Us Section */
 .why-us {
-    background-color: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Neon Pink */
     padding: 2rem 1rem;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -382,7 +382,7 @@ p.tagline.dark-mode{
 }
 
 .card {
-    background: #c18bff22;
+    background: black;
     border-radius: 10px;
     padding: 1.5rem;
     flex: 0 0 calc(50% - 1rem);
@@ -404,7 +404,7 @@ p.tagline.dark-mode{
 }
 
 .card h4 {
-    color: #FFEB55;
+    color: white;
     font-family: "Fredoka", sans-serif;
     font-size: 1.2rem;
 }
@@ -415,24 +415,25 @@ p.tagline.dark-mode{
 
 /* FAQ section */
 #faq .tagline{
-    color: #2E073F;
+    color: white;
     text-shadow: 
-        0 0 10px rgb(220, 171, 255),   
-        0 0 20px rgba(243, 230, 255, 0.8);
+        0 0 10px rgb(0, 0, 0),   
+        0 0 20px rgba(0, 0, 0, 0.8);
     font-size: 15px;
 }
 
 .faq-heading {
     font-weight: 400;
-    font-size: 19px;
+    font-size: 20px;
     transition: text-indent 0.2s;
     text-indent: 20px;
-    color: #c31432;
+    color: white;
 }
   
 .faq-text {  
     font-weight: 400;
-    color: #2E073F;
+    color: white;
+    
     width: 95%;
     padding-left: 20px;
     margin-bottom: 10px;
@@ -441,7 +442,8 @@ p.tagline.dark-mode{
 .faq {
     width: auto;
     margin: 0 auto;
-    background: #ffff00;
+    
+    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Neon Pink */
     position: relative;
     border: 1px solid #2E073F;
     padding-top: 60px; /* Adjust according to your navbar height */
@@ -455,8 +457,9 @@ p.tagline.dark-mode{
     cursor: pointer;
     height: 56px;
     padding-top:1px;
-    background-color: #ffffcd;
+    background: linear-gradient(135deg, #000000, #1a1a4b); /* Black, Dark Blue, Neon Pink */;
     border-bottom: 1px solid #2E073F;
+    
 }
   
 .faq input[type="checkbox"] {
@@ -470,8 +473,8 @@ p.tagline.dark-mode{
     transition: transform 0.8s;
     transition: transform 0.8s, -webkit-transform 0.8s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    border-top: 3px solid rgba(0, 0, 0, 0.33);
-    border-right: 3px solid rgba(0, 0, 0, 0.33);
+    border-top: 3px solid white;
+    border-right: 3px solid white;
     float: right;
     position: relative;
     top: -30px;
@@ -489,7 +492,7 @@ p.tagline.dark-mode{
 
 .faq input[type="checkbox"]:checked + label {
     display: block;
-    background: rgba(255,255,255,255) !important;
+    background: black!important;
     color: #4f7351;
     height: 225px;
     transition: height 0.8s;
@@ -513,8 +516,8 @@ p.tagline.dark-mode{
     box-shadow: 0px 5px 10px 0px #aaa;
     position: fixed;
     width: 100%;
-    background: #c3143178;
-    color: #dec6ff;
+    background: black;
+    color: white;
     /* opacity: ; */
     z-index: 100;
 }
@@ -533,7 +536,7 @@ p.tagline.dark-mode{
 
 .logo {
     order: 1;
-    font-size: 2.3rem;
+    font-size: 2.0rem;
 }
 
 .menu-items li {
@@ -543,7 +546,7 @@ p.tagline.dark-mode{
 }
 
 .navbar a {
-    color: #dec6ff;
+    color: white;
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease-in-out;
@@ -720,3 +723,5 @@ p.tagline.dark-mode{
       font-size: 1rem;
     }
 }
+
+

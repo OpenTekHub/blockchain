@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Neon Pink */
+    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Black*/
     color: white;
     height: 100vh;
     font-family: "Roboto", sans-serif;
@@ -34,7 +34,7 @@ h1, h2, h3 {
 
 .header {
     text-align: center;
-    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Neon Pink */
+    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, , Black */
     color: white;
     padding: 1.2rem;
     font-family: "Roboto", sans-serif;
@@ -366,7 +366,7 @@ p.tagline.dark-mode{
 
 /* Why Us Section */
 .why-us {
-    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Neon Pink */
+    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Black */
     padding: 2rem 1rem;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -443,7 +443,7 @@ p.tagline.dark-mode{
     width: auto;
     margin: 0 auto;
     
-    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue, Neon Pink */
+    background: linear-gradient(135deg, #000000, #1a1a4b, black); /* Black, Dark Blue,  Black */
     position: relative;
     border: 1px solid #2E073F;
     padding-top: 60px; /* Adjust according to your navbar height */
@@ -457,7 +457,7 @@ p.tagline.dark-mode{
     cursor: pointer;
     height: 56px;
     padding-top:1px;
-    background: linear-gradient(135deg, #000000, #1a1a4b); /* Black, Dark Blue, Neon Pink */;
+    background: linear-gradient(135deg, #000000, #1a1a4b); /* Black, Dark Blue,  Black */;
     border-bottom: 1px solid #2E073F;
     
 }

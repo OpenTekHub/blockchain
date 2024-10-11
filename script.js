@@ -296,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
   
 const tabs = document.querySelectorAll('.tab');
 const cursor = document.getElementById('cursor');

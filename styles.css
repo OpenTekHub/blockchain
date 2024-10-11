@@ -126,10 +126,61 @@ zz
 
 #repo-info {
     background-color: #fffefe10;
-    text-align: center;
     padding: 1.5rem;
     box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.2);
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5rem;
+    min-height: 12rem;
+}
+
+#repo-info .left a {
+    position: relative;
+    text-shadow: 0 4px 10px #fefe09;
+}
+
+#repo-info .left a::before {
+    content: '';
+    position: absolute;
+    top: 100%; /* Adjust this to align the underline at the bottom */
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #FFEB55; /* The underline color */
+    transition: width .3s linear;
+}
+
+#repo-info .left a:hover::before {
+    width: 100%; /* The underline expands fully when hovering */
+}
+
+
+#repo-info .left a i{
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    text-align: center;
+}
+
+#repo-info .right h2{
+    margin-bottom: 1.5rem;
+}
+
+#repo-info .right a{
+    font-size: 1rem;
+    margin: 2rem 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid white;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    transition: background-color 0.3s ease-in;
+}
+
+#repo-info .right a:hover{
+    background-color: white;
+    color: #c31432;
 }
 
 #repo-info p {
@@ -600,7 +651,23 @@ p.tagline.dark-mode{
         flex: 1 1 100%;
     }
 }
+@media (max-width: 895px) {
+    #repo-info {
+        position: relative;
+        display: flex;
+        flex-direction: column !important;
+        align-items: first baseline;
+        padding: 0 !important;
 
+    }
+    #repo-info .left{
+        margin-left: 1rem;
+    }
+    #repo-info .right{
+        margin-top: 3rem !important;
+        margin-left: 1rem;
+    }
+}
 /* Small devices (phones, 500px and below) */
 @media (max-width: 500px) {
     .logo {

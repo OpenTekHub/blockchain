@@ -466,23 +466,23 @@ p.tagline.dark-mode{
 
 /* FAQ section */
 #faq .tagline{
-    color: #2E073F;
-    text-shadow: 
-        0 0 10px rgb(220, 171, 255),   
-        0 0 20px rgba(243, 230, 255, 0.8);
-    font-size: 15px;
+    color: #eee2f3;
+    font-size: 20px;
+    text-shadow: none;
 }
-
+.contact-link {
+    color: #dde665;
+}
 .faq-heading {
-    font-weight: 400;
+    font-weight: 700;
     font-size: 19px;
     transition: text-indent 0.2s;
     text-indent: 20px;
-    color: #c31432;
+    color: #3f0c55;
 }
   
 .faq-text {  
-    font-weight: 400;
+    font-weight: 600;
     color: #2E073F;
     width: 95%;
     padding-left: 20px;
@@ -492,9 +492,7 @@ p.tagline.dark-mode{
 .faq {
     width: auto;
     margin: 0 auto;
-    background: #ffff00;
     position: relative;
-    border: 1px solid #2E073F;
     padding-top: 60px; /* Adjust according to your navbar height */
     margin-top: -60px; /* Negative margin to balance the spacing */
 }
@@ -542,7 +540,7 @@ p.tagline.dark-mode{
     display: block;
     background: rgba(255,255,255,255) !important;
     color: #4f7351;
-    height: 225px;
+    height: 140px;
     transition: height 0.8s;
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }

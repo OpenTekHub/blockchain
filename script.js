@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Fetch price function to handle error alerts
+
 function fetchPrice(crypto) {
     return fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${crypto}&vs_currencies=usd`)
         .then(response => response.json())

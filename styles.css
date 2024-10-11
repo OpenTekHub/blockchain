@@ -21,9 +21,7 @@ img{
     top:1.9vw
 } 
 
-h1, h2, h3 {
-    margin: 0;
-}
+zz
 
 #git{
     position:relative;
@@ -259,7 +257,6 @@ h1, h2, h3 {
     margin-block: 0px;
 }
 
-
 /* Here are the styles for the theme toggel  */
 /* Theme switcher */
 .theme-switch {
@@ -272,6 +269,7 @@ h1, h2, h3 {
     cursor: pointer;
     transition: background 0.3s ease-in-out;
     vertical-align: middle;
+    
 }
 
 .theme-switch::before {
@@ -504,8 +502,8 @@ p.tagline.dark-mode{
 }
 
 .container {
-    max-width: 1200px;
-    width: 90%;
+    
+    width: 0%;
     margin: auto;
 }
 
@@ -532,7 +530,7 @@ p.tagline.dark-mode{
 }
 
 .logo {
-    order: 1;
+    
     font-size: 2.3rem;
 }
 
@@ -549,9 +547,7 @@ p.tagline.dark-mode{
     transition: color 0.3s ease-in-out;
 }
 
-.navbar a:hover {
-    color: #f6ff00;
-}
+
 
 /* Media Queries for Mobile View */
 
@@ -593,6 +589,7 @@ p.tagline.dark-mode{
         top: 10px;
         right: 15px;
         font-size: 2.5rem;
+       
     }
 
     .row {
@@ -694,7 +691,7 @@ p.tagline.dark-mode{
     .logo {
       position: absolute;
       top: 10px;
-      right: 15px;
+      right: 80px;
       font-size: 1rem;
     }
 
@@ -720,3 +717,64 @@ p.tagline.dark-mode{
       font-size: 1rem;
     }
 }
+.bg-neutral-100 {
+    margin-top: 10px;
+    height: 50px;
+    padding: 0 0;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 1px;
+    
+}
+
+.tabs {
+    position: relative;
+    display: flex;
+    list-style-type: none;
+    border: 2px solid black !important;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgb(36, 11, 54), rgb(195, 20, 50));
+    padding: 0; 
+    
+}
+
+.tab a {
+    text-decoration: none;
+    color: black; /* Default color */
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-size: 16px;
+    display: block; /* Make the anchor tag fill the li element */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+    position: relative;
+    z-index: 10; /* Make sure it sits on top of the cursor */
+}
+
+.tab a:hover {
+    color: white !important; /* Change text color to white on hover */
+}
+
+.cursor {
+    position: absolute;
+    background-color: black;
+    height: 40px;
+    width: 0; /* No width initially */
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    z-index: 0;
+    opacity: 0; /* Initially hidden */
+    transition: all 0.3s ease-in-out;
+}
+.container{
+    background-color: #240b36;
+    width: 100%;
+    margin: 0%;
+    
+}
+
+
+

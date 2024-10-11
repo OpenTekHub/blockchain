@@ -48,7 +48,6 @@ function toggleMenu() {
 
 // A map of symbols to their corresponding API names
 const cryptoMap = {
-    // Major cryptocurrencies
     'BTC': 'bitcoin',
     'ETH': 'ethereum',
     'USDT': 'tether',
@@ -75,40 +74,28 @@ const cryptoMap = {
     'NEAR': 'near',
     'HBAR': 'hedera-hashgraph',
     'TON': 'toncoin',
-    'SUI':'sui',
+    'SUI': 'sui',
     'OP': 'optimism',
     'INJ': 'injective',
     'ARB': 'arbitrum',
-
-    // Stablecoins
     'DAI': 'dai',
     'BUSD': 'binance-usd',
     'PAX': 'paxos-standard',
-    
-    // DeFi tokens
     'UNI': 'uniswap',
     'AAVE': 'aave',
     'SUSHI': 'sushi',
     'COMP': 'compound-governance-token',
     'YFI': 'yearn-finance',
-    
-    // Layer 2 solutions and scaling
     'LRC': 'loopring',
     'ZRX': '0x',
     'OMG': 'omisego',
-
-    // NFT and metaverse tokens
     'MANA': 'decentraland',
     'SAND': 'the-sandbox',
     'ENJ': 'enjincoin',
     'AXS': 'axie-infinity',
     'GALA': 'gala',
-
-    // Privacy coins
     'ZEC': 'zcash',
     'DASH': 'dash',
-
-    // Other popular tokens
     'FTM': 'fantom',
     'GRT': 'the-graph',
     '1INCH': '1inch',
@@ -132,8 +119,6 @@ const cryptoMap = {
     'CRO': 'crypto-com-chain',
     'MIOTA': 'iota',
     'ETC': 'ethereum-classic',
-
-    // Meme coins
     'BABYDOGE': 'baby-doge-coin',
     'SAFEMOON': 'safemoon',
     'ELON': 'dogelon-mars',
@@ -141,8 +126,6 @@ const cryptoMap = {
     'WIF': 'dogwithat',
     'BONK': 'bonk',
     'FLOKI': 'floki',
-    
-    // Add more symbols and tokens as needed
     'WETH': 'wrapped-ethereum',
     'MKR': 'maker',
     'BAL': 'balancer',
@@ -210,7 +193,6 @@ document.getElementById('predict-btn').addEventListener('click', function() {
 
 // GSAP Animations
 document.addEventListener('DOMContentLoaded', () => {
-    // Timeline for header and intro text animations
     let tl = gsap.timeline();
 
     tl.from("header h1", {
@@ -228,7 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.2
     });
 
-    // Crypto price predictor section
     tl.from("#crypto-price-predictor h2", {
         y: 50,
         opacity: 0,
@@ -252,27 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.2
     });
 
-    // Animate the price result after prediction
     gsap.from("#price-result", {
         opacity: 0,
         duration: 1,
-        ease: "power2.inOut",
-        delay: 1.5
-   Here's the continuation and completion of your `script.js` file:
-
-```javascript
+        ease: "power1.out"
     });
 });
-
-
-function fetchPrice(crypto) {
-    return fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${crypto}&vs_currencies=usd`)
-        .then(response => response.json())
-        .then(data => {
-            if (data[crypto]) {
-                return data[crypto].usd;
-            } else {
-                throw new Error('Cryptocurrency not found');
-            }
-        });
-}

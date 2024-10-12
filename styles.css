@@ -602,6 +602,15 @@ p.tagline.dark-mode{
     color: #f6ff00;
 }
 
+.left{
+    align-items:flex-start;
+}
+
+.right{
+    font-size:large;
+    text-align: center;
+}
+
 /* Media Queries for Mobile View */
 
 /* Medium devices (tablets, 768px and below) */

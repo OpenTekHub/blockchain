@@ -803,14 +803,14 @@ p.tagline.dark-mode{
     list-style-type: none;
     border: 2px solid black !important;
     border-radius: 10px;
-    background: linear-gradient(135deg, rgb(36, 11, 54), rgb(195, 20, 50));
+    background: linear-gradient(135deg, rgb(115, 100, 126), rgb(177, 29, 54));
     padding: 0; 
     
 }
 
 .tab a {
     text-decoration: none;
-    color: black; /* Default color */
+    color: white; /* Default color */
     padding: 1rem 2rem;
     text-transform: uppercase;
     font-size: 16px;

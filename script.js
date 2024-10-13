@@ -48,7 +48,6 @@ function toggleMenu() {
 
 // A map of symbols to their corresponding API names
 const cryptoMap = {
-    // Major cryptocurrencies
     'BTC': 'bitcoin',
     'ETH': 'ethereum',
     'USDT': 'tether',
@@ -75,40 +74,28 @@ const cryptoMap = {
     'NEAR': 'near',
     'HBAR': 'hedera-hashgraph',
     'TON': 'toncoin',
-    'SUI':'sui',
+    'SUI': 'sui',
     'OP': 'optimism',
     'INJ': 'injective',
     'ARB': 'arbitrum',
-
-    // Stablecoins
     'DAI': 'dai',
     'BUSD': 'binance-usd',
     'PAX': 'paxos-standard',
-    
-    // DeFi tokens
     'UNI': 'uniswap',
     'AAVE': 'aave',
     'SUSHI': 'sushi',
     'COMP': 'compound-governance-token',
     'YFI': 'yearn-finance',
-    
-    // Layer 2 solutions and scaling
     'LRC': 'loopring',
     'ZRX': '0x',
     'OMG': 'omisego',
-
-    // NFT and metaverse tokens
     'MANA': 'decentraland',
     'SAND': 'the-sandbox',
     'ENJ': 'enjincoin',
     'AXS': 'axie-infinity',
     'GALA': 'gala',
-
-    // Privacy coins
     'ZEC': 'zcash',
     'DASH': 'dash',
-
-    // Other popular tokens
     'FTM': 'fantom',
     'GRT': 'the-graph',
     '1INCH': '1inch',
@@ -132,8 +119,6 @@ const cryptoMap = {
     'CRO': 'crypto-com-chain',
     'MIOTA': 'iota',
     'ETC': 'ethereum-classic',
-
-    // Meme coins
     'BABYDOGE': 'baby-doge-coin',
     'SAFEMOON': 'safemoon',
     'ELON': 'dogelon-mars',
@@ -141,8 +126,6 @@ const cryptoMap = {
     'WIF': 'dogwithat',
     'BONK': 'bonk',
     'FLOKI': 'floki',
-    
-    // Add more symbols and tokens as needed
     'WETH': 'wrapped-ethereum',
     'MKR': 'maker',
     'BAL': 'balancer',
@@ -194,6 +177,7 @@ document.getElementById('predict-btn').addEventListener('click', function() {
         .then(data => {
             if (data[crypto]) {
                 document.getElementById("price").innerText = "$" + data[crypto].usd;
+                alert(`The current price of ${cryptoInputValue} is $${data[crypto].usd}`); // Alert with the price
             } else {
                 document.getElementById("price").innerText = "Cryptocurrency not found!";
             }
@@ -209,7 +193,6 @@ document.getElementById('predict-btn').addEventListener('click', function() {
 
 // GSAP Animations
 document.addEventListener('DOMContentLoaded', () => {
-    // Timeline for header and intro text animations
     let tl = gsap.timeline();
 
     tl.from("header h1", {
@@ -227,7 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.2
     });
 
-    // Crypto price predictor section
     tl.from("#crypto-price-predictor h2", {
         y: 50,
         opacity: 0,
@@ -251,53 +233,13 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.2
     });
 
-    // Animate the price result after prediction
     gsap.from("#price-result", {
         opacity: 0,
         duration: 1,
-        ease: "power2.inOut",
-        delay: 1.5
-    });
-
-    // Telegram bot section animation
-    gsap.from("#telegram-bot", {
-        opacity: 0,
-        y: 100,
-        duration: 0.8,
-        ease: "power2.out",
-        delay: 1
-    });
-
-    // Repo info section
-    gsap.from("#repo-info h2", {
-        opacity: 0,
-        x: -100,
-        duration: 0.8,
-        ease: "power3.out",
-        delay: 1.5
-    });
-
-    gsap.from("#repo-info p", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: "power3.out",
-        delay: 1.7
-    });
-
-    gsap.from("#repo-info a", {
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.6,
-        ease: "elastic.out(1, 0.75)",
-        delay: 1.9
+        ease: "power1.out"
     });
 });
 
-
-
-
-  
 const tabs = document.querySelectorAll('.tab');
 const cursor = document.getElementById('cursor');
 
@@ -344,4 +286,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-

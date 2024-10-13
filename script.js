@@ -239,3 +239,50 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power1.out"
     });
 });
+
+const tabs = document.querySelectorAll('.tab');
+const cursor = document.getElementById('cursor');
+
+tabs.forEach(tab => {
+    tab.addEventListener('mouseenter', () => {
+        const tabCoords = tab.getBoundingClientRect();
+        cursor.style.width = `${tabCoords.width}px`;
+        cursor.style.transform = `translate(${tabCoords.left}px, -50%)`;
+        cursor.style.opacity = 1; // Show cursor
+    });
+
+    tab.addEventListener('mouseleave', () => {
+        cursor.style.opacity = 0; // Hide cursor
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('.tab');
+    const cursor = document.querySelector('.cursor');
+    const tabsContainer = document.querySelector('.tabs');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('mouseover', function () {
+            // Get the tab's bounding box
+            const tabRect = tab.getBoundingClientRect();
+            const containerRect = tabsContainer.getBoundingClientRect();
+
+            // Move the cursor to the hovered tab
+            cursor.style.width = `${tabRect.width}px`; // Use backticks for template literals
+            cursor.style.left = `${tabRect.left - containerRect.left}px`; // Use backticks for left calculation
+            cursor.style.opacity = 1; // Show the cursor
+
+            // Change tab text to white while the cursor is over it
+            tab.querySelector('a').style.color = 'blue'; // Ensure the anchor's color changes
+        });
+
+        tab.addEventListener('mouseleave', function () {
+            // Hide the cursor after hover ends
+            cursor.style.opacity = 0;
+
+            // Reset the tab text color to black
+            tab.querySelector('a').style.color = 'white'; // Reset anchor's color
+        });
+    });
+});

@@ -1,6 +1,6 @@
 ### All the code is available at gh-pages branch 
 
-# Blockchain - OpenTekHub
+# Blockchain-OpenTekHub
 
 Welcome to the **Blockchain** repository by [OpenTekHub](https://opentekhub.github.io/blockchain/)! This project is a part of the **Winter of Blockchain** ([WoB](https://gs-wob.vercel.app/wob)) and aims to provide an open-source platform for learning and contributing to blockchain technology.
 

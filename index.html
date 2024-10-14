@@ -53,7 +53,158 @@
 
 
     <div class="central">
-        <p class="tagline">Explore the Blockchain implementation and predict the latest cryptocurrency prices.</p>
+          <!--slider section-->
+           
+        
+
+
+
+      <section id="slider-body">
+        <!-- Slider section showcasing emerging crypto info -->
+        <style>
+            
+           #slider-body {font-family: Verdana, sans-serif; margin-top: 0px; height: 5rem; margin-bottom: 10px; min-height: 50%;}
+            .mySlides {display: none}
+            img {vertical-align: middle;}
+            
+            /* Slideshow container */
+            .slideshow-container {
+              max-width: 600px;
+              position: relative;
+              margin-left: 10px;
+              padding: 10px;
+              align-self: start;
+              
+            }
+            
+            /* Next & previous buttons */
+            .prev, .next {
+              cursor: pointer;
+              position: absolute;
+              top: 50%;
+              width: auto;
+              padding: 16px;
+              margin-top: -22px;
+              color: white;
+              font-weight: bold;
+              font-size: 18px;
+              transition: 0.6s ease;
+              border-radius: 0 3px 3px 0;
+              user-select: none;
+            }
+    
+            .slider-imgs {
+              width: 731px;
+              height: 360px;
+              object-fit: cover;
+              align-content: center;
+            }
+            
+            /* Position the "next button" to the right */
+            .next {
+              right: -119px;
+              border-radius: 3px 0 0 3px;
+              box-sizing: border-box;
+            }
+            
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover, .next:hover {
+              background-color: rgba(0,0,0,0.8);
+            }
+            
+            /* Caption text */
+            .text {
+              color: #f2f2f2;
+              font-size: 15px;
+              padding: 8px 12px;
+              position: absolute;
+              bottom: 8px;
+              width: 100%;
+              text-align: center;
+            }
+            
+            /* Number text (1/3 etc) */
+            .numbertext {
+              color: #f2f2f2;
+              font-size: 12px;
+              padding: 8px 12px;
+              position: absolute;
+              top: 0;
+            }
+            
+            
+            
+            
+            
+            
+            
+            /* Fading animation */
+            .fade {
+              animation-name: fade;
+              animation-duration: 1.5s;
+            }
+            
+            @keyframes fade {
+              from {opacity: .4} 
+              to {opacity: 1}
+            }
+            
+            /* On smaller screens, decrease text size */
+            @media only screen and (max-width: 300px) {
+              .prev, .next,.text {font-size: 11px}
+            }
+            </style>
+            
+            <p class="tagline" style="display: block ;padding: 0%; font-size: 30px;" >Explore the Blockchain implementation and predict the latest cryptocurrency prices.</p>
+            <div class="slideshow-container" >
+                
+    
+            <div class="mySlides fade" style="width:711.4px; height: 350px">
+              <div class="numbertext">1 / 3</div>
+              <img src="crypto1.jpg" class="slider-imgs">
+              <div class="text"></div>
+            </div>
+            
+            <div class="mySlides fade" style="width:711.4px; height: 350px">
+              <div class="numbertext">2 / 3</div>
+              <img src="crypto3.jpg" class="slider-imgs">
+              <div class="text"></div>
+            </div>
+            
+            <div class="mySlides fade" style="width:711.4px; height: 350px">
+              <div class="numbertext">3 / 3</div>
+              <img src="crypto2.jpg" class="slider-imgs">
+              <div class="text"></div>
+            </div>
+            
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+    
+            
+            
+            </div>
+            <br>
+            
+            
+            
+            <script>
+            let slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+            </script>
+    
+        </section>
 
         <section id="crypto-price-predictor">
             <h2>Crypto Price Predictor</h2>

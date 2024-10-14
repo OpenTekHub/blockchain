@@ -435,7 +435,8 @@ p.tagline.dark-mode{
 .card {
     background: #c18bff22;
     border-radius: 10px;
-    padding: 1.5rem;
+    padding: 0.75rem;
+    min-height: 90px;
     flex: 0 0 calc(50% - 1rem);
     margin: 0.5rem; 
     color: #FFF;
@@ -457,11 +458,12 @@ p.tagline.dark-mode{
 .card h4 {
     color: #FFEB55;
     font-family: "Fredoka", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .card p {
     font-size: 0.9rem;
+    font-weight: 700;
 }
 
 /* FAQ section */

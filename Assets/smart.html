@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Yield Farming Analyzer</title>
+    <style>
+        
+        body {
+    background: linear-gradient(135deg, #240b36, #c31432);
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffbf7f;
+        }
+
+        .search-form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-form label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .search-form select {
+            margin-right: 15px;
+        }
+
+        button {
+            background-color: #e09be6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f34bb0;
+        }
+
+        #results {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+            color:#7feaff;
+        }
+
+        table th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #df3f3f;
+        }
+
+        #error-message {
+            color: rgb(250, 250, 250);
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dynamic Yield Farming Analyzer</h1>
+        <p style="color: rgb(240, 237, 49);">Real-time yield farming opportunities across DeFi platforms</p>
+
+        <!-- Search Form -->
+        <div class="search-form">
+            <label for="platform" style="color: rgb(49, 192, 240);">Choose a platform:</label>
+            <select id="platform" name="platform">
+                <option value="all">All Platforms</option>
+                <option value="uniswap">Uniswap</option>
+                <option value="pancakeswap">PancakeSwap</option>
+                <option value="compound">Compound</option>
+                <option value="aave">Aave</option>
+            </select>
+
+            <label for="risk" style="color: rgb(92, 206, 238);">Risk Level:</label>
+            <select id="risk" name="risk">
+                <option value="all" ">All Risk Levels</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <button onclick="fetchOpportunities()">Analyze</button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results">
+            <h2 style="color: rgb(231, 192, 150);">Top Yield Farming Opportunities</h2>
+            <table id="opportunities-table">
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Token Pair</th>
+                        <th>APY (%)</th>
+                        <th>Liquidity</th>
+                        <th>Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="hidden">
+            <p>Failed to fetch data. Please try again later.</p>
+        </div>
+    </div>
+
+    <script>
+        // CoinGecko API URL for market data
+        const apiUrl = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false";
+
+        // Function to fetch and display the yield farming opportunities
+        async function fetchOpportunities() {
+            const platformFilter = document.getElementById('platform').value;
+            const riskFilter = document.getElementById('risk').value;
+
+            try {
+                const response = await fetch(apiUrl); // Fetching data from CoinGecko API
+                const yieldOpportunities = await response.json(); // Parsing JSON data
+
+                // Here, you would filter the results based on your criteria.
+                // For demo purposes, let's assume the response provides enough data.
+                const filteredOpportunities = yieldOpportunities.map(opportunity => ({
+                    platform: "CoinGecko", // Placeholder since CoinGecko doesn't specify platforms
+                    tokenPair: opportunity.name, // Using coin name as token pair for demonstration
+                    apy: (Math.random() * 30).toFixed(2), // Random APY for demonstration
+                    liquidity: `$${(Math.random() * 1000000).toFixed(2)}`, // Random liquidity for demonstration
+                    risk: Math.random() < 0.5 ? "Medium" : "High" // Random risk level for demonstration
+                }));
+
+                displayOpportunities(filteredOpportunities);
+            } catch (error) {
+                console.error("Failed to fetch data:", error);
+                document.getElementById("error-message").classList.remove("hidden");
+            }
+        }
+
+        // Function to display opportunities in the table
+        function displayOpportunities(opportunities) {
+            const tableBody = document.querySelector("#opportunities-table tbody");
+            tableBody.innerHTML = ""; // Clear previous results
+
+            if (opportunities.length === 0) {
+                document.getElementById("error-message").classList.remove("hidden");
+                return;
+            }
+
+            document.getElementById("error-message").classList.add("hidden");
+
+            opportunities.forEach(opportunity => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${opportunity.platform}</td>
+                    <td>${opportunity.tokenPair}</td>
+                    <td>${opportunity.apy}%</td>
+                    <td>${opportunity.liquidity}</td>
+                    <td>${opportunity.risk}</td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Display all opportunities by default when the page loads
+        window.onload = function() {
+            fetchOpportunities(); // Fetch and display opportunities on load
+        };
+    </script>
+
+</body>
+</html>
